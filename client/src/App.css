@@ -1,0 +1,29 @@
+.App {
+    display: grid;
+}
+
+.AppContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: inherit;
+}
+
+.container {
+    padding: 1%;
+    display: grid;
+}
+
+#nearby,
+#promotion,
+#bestRating,
+#topSeller{
+    transition: 0.5s ease-in-out;
+}
+
+#nearby:hover,
+#promotion:hover,
+#bestRating:hover,
+#topSeller:hover {
+    color: #ffffff;
+    background-color: #fa800b;
+}
