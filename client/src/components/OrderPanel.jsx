@@ -1,6 +1,4 @@
 import React from 'react'
-import burger1 from '../images/burger1.jpg'
-import pizza1 from '../images/pizza1.jpg'
 
 export default function OrderPanel() {
     return(
@@ -41,7 +39,7 @@ export default function OrderPanel() {
                         <div className="mt-20 flex flex-col gap-4">
                             <div className="bg-gray-200 shadow-md rounded-md grid grid-cols-3 gap-3">
                                 <div>
-                                    <img src={burger1} alt="Food"/>
+                                    <img src="" alt="Food"/>
                                 </div>
                                 <div className="grid grid-rows-2 gap-3">
                                     <div>
@@ -57,7 +55,7 @@ export default function OrderPanel() {
                             </div>
                             <div className="bg-gray-200 shadow-md rounded-md grid grid-cols-3 gap-3">
                                 <div>
-                                    <img src={pizza1} alt="Food"/>
+                                    <img src="" alt="Food"/>
                                 </div>
                                 <div className="grid grid-rows-2 gap-3">
                                     <div>

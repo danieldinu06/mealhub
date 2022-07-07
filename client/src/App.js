@@ -7,6 +7,7 @@ import RestaurantsPanel from "./components/RestaurantsPanel";
 import Footer from "./components/Footer";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Checkout from "./components/Checkout";
+import Restaurant from "./components/Restaurant";
 
 
 function App() {
@@ -30,6 +31,16 @@ function App() {
 
                         <Route path={"/checkout"} element={(
                             <Checkout/>
+                        )}/>
+
+                        <Route path={"/restaurant/:id"} element={(
+                            <>
+                                <div className="container rounded-l-2xl">
+                                    <Search />
+                                    <Restaurant />
+                                </div>
+                                <OrderPanel/>
+                            </>
                         )}/>
 
                     </Routes>

@@ -5,6 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e676f472-67f4-486a-83f1-8f0663ffb208" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Checkout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Checkout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RestaurantsPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RestaurantsPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/burger1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/burger2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/burger3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/pizza1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/pizza2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/pizza3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/ramen1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/ramen2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/ramen3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../empty!.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,24 +52,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/daniel/CodeCool/Advanced/Week 1/el-proyecte-grande-sprint-1-java-freeDaTitty/client&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/daniel/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/221.5787.30/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/daniel/CodeCool/Advanced/Week 2/el-proyecte-grande-sprint-2-java-freeDaTitty/client",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/home/daniel/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/221.5787.30/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/images" />
@@ -70,6 +90,7 @@
       <workItem from="1655887893791" duration="3688000" />
       <workItem from="1655895591655" duration="14484000" />
       <workItem from="1655964048175" duration="31843000" />
+      <workItem from="1657189406368" duration="11806000" />
     </task>
     <servers />
   </component>

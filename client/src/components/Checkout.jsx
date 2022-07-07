@@ -1,7 +1,5 @@
 import React from 'react'
 import {useEffect} from "react";
-import burger1 from "../images/burger1.jpg";
-import pizza1 from "../images/pizza1.jpg";
 
 export default function Checkout() {
     useEffect(() => {
@@ -15,7 +13,7 @@ export default function Checkout() {
 
             <div className="grid grid-cols-2 mt-10">
                 <div className="shadow-md grid grid-cols-2 h-48 gap-3">
-                    <img className="rounded-md h-48" src={burger1} alt="Food"/>
+                    <img className="rounded-md h-48" src="" alt="Food"/>
                     <div className="text-3xl grid">
                         <div>
                             Burger
@@ -28,7 +26,7 @@ export default function Checkout() {
                         </div>
                     </div>
 
-                    <img className="rounded-md h-48" src={pizza1} alt="Food"/>
+                    <img className="rounded-md h-48" src="" alt="Food"/>
                     <div className="text-3xl grid">
                         <div>
                             Pizza
@@ -40,71 +38,6 @@ export default function Checkout() {
                             </div>
                         </div>
                     </div>
-
-                    {/*<img className="rounded-md h-48" src={pizza1} alt="Food"/>*/}
-                    {/*<div className="text-3xl grid">*/}
-                    {/*    <div>*/}
-                    {/*        Burger*/}
-                    {/*    </div>*/}
-                    {/*    <div className="grid grid-cols-2">*/}
-                    {/*        $16*/}
-                    {/*        <div className="text-xl">*/}
-                    {/*            x 2*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-
-                    {/*<img className="rounded-md h-48" src={pizza1} alt="Food"/>*/}
-                    {/*<div className="text-3xl grid">*/}
-                    {/*    <div>*/}
-                    {/*        Burger*/}
-                    {/*    </div>*/}
-                    {/*    <div className="grid grid-cols-2">*/}
-                    {/*        $16*/}
-                    {/*        <div className="text-xl">*/}
-                    {/*            x 2*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-
-                    {/*<img className="rounded-md h-48" src={pizza1} alt="Food"/>*/}
-                    {/*<div className="text-3xl grid">*/}
-                    {/*    <div>*/}
-                    {/*        Burger*/}
-                    {/*    </div>*/}
-                    {/*    <div className="grid grid-cols-2">*/}
-                    {/*        $16*/}
-                    {/*        <div className="text-xl">*/}
-                    {/*            x 2*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-
-                    {/*<img className="rounded-md h-48" src={pizza1} alt="Food"/>*/}
-                    {/*<div className="text-3xl grid">*/}
-                    {/*    <div>*/}
-                    {/*        Burger*/}
-                    {/*    </div>*/}
-                    {/*    <div className="grid grid-cols-2">*/}
-                    {/*        $16*/}
-                    {/*        <div className="text-xl">*/}
-                    {/*            x 2*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-
-                    {/*<img className="rounded-md h-48" src={pizza1} alt="Food"/>*/}
-                    {/*<div className="text-3xl grid">*/}
-                    {/*    <div>*/}
-                    {/*        Burger*/}
-                    {/*    </div>*/}
-                    {/*    <div className="grid grid-cols-2">*/}
-                    {/*        $16*/}
-                    {/*        <div className="text-xl">*/}
-                    {/*            x 2*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                 </div>
 
                 <div>
