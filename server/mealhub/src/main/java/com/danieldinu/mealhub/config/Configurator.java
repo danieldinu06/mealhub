@@ -43,8 +43,8 @@ public class Configurator {
              *   MEALS
              */
 
-            Meal meal = new Meal("Papanasi");
-            Meal meal1 = new Meal("Gogosi");
+            Meal meal = new Meal("Papanasi", "/images/papanasi.jpg");
+            Meal meal1 = new Meal("Gogosi", "/images/gogosi.jpg");
 
             mealService.addMeals(dristorBudapesta, List.of(meal, meal1));
 
@@ -53,10 +53,10 @@ public class Configurator {
              *   DRINKS
              */
 
-            Drink cola = new Drink("Coca-Cola");
-            Drink colaZero = new Drink("Coca-Cola Zero");
-            Drink fanta = new Drink("Fanta");
-            Drink sprite = new Drink("Sprite");
+            Drink cola = new Drink("Coca-Cola", "/images/cola.jpg");
+            Drink colaZero = new Drink("Coca-Cola Zero", "/images/colazero.jpg");
+            Drink fanta = new Drink("Fanta", "/images/fanta.jpg");
+            Drink sprite = new Drink("Sprite", "/images/sprite.jpg");
 
             drinkService.addDrinks(dristorBudapesta, List.of(cola, colaZero, fanta, sprite));
             drinkService.addDrinks(mcDonaldsVitan, List.of(cola, colaZero, fanta, sprite));

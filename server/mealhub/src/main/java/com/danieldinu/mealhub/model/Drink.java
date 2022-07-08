@@ -32,7 +32,7 @@ public class Drink {
     @Column(
             columnDefinition = "TEXT"
     )
-//    @NonNull
+    @NonNull
     private String image;
 
     private Double price;

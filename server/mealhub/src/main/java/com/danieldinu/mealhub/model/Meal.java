@@ -31,7 +31,7 @@ public class Meal {
     @Column(
             columnDefinition = "TEXT"
     )
-//    @NonNull
+    @NonNull
     private String image;
 
     @Column(
