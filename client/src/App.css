@@ -5,6 +5,7 @@
 .AppContainer {
     display: grid;
     grid-template-columns: auto auto auto;
+    /*grid-template-areas: ". sidebar main order .";*/
     height: inherit;
 }
 
