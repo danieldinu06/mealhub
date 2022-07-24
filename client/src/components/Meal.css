@@ -1,0 +1,42 @@
+.type {
+    margin-bottom: 2rem;
+    font-size: 2.1rem;
+    font-family: "DejaVu Sans Light", serif;
+}
+
+.product {
+    display: grid;
+    border-width: 2px;
+    border-color: #000000;
+    border-radius: 0.5rem;
+}
+
+.drinkImage {
+    height: 5rem;
+}
+
+.ingredients {
+    color: #9CA3AFFF;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cardBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    font-family: "DejaVu Sans", serif;
+    color: #515163;
+}
+
+.cardBottom > button {
+    color: #fa800b;
+    font-size: 1.5rem;
+}
+
+.addButton {
+    background-color: #fa800b;
+    border-radius: 0.5rem;
+}

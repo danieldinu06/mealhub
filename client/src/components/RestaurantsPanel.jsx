@@ -49,15 +49,15 @@ export default function RestaurantsPanel() {
                                 </div>
                             </a>
                         </div>
-                        <div className="flex justify-between">
-                            <div className={"flex gap-1"}>
+                        <div className={"flex justify-between pl-2 pr-2"}>
+                            <div className={"flex gap-1 items-center"}>
                                 <FontAwesomeIcon className={"self-center"} icon={faThumbsUp} />
                                 100%
                                 <p className="text-gray-400">
                                     (250)+
                                 </p>
                             </div>
-                            <div className={"flex gap-4"}>
+                            <div className={"flex gap-4 items-center"}>
                                 <div>
                                     <FontAwesomeIcon icon={faTruck}/> {restaurant.deliveryFee} RON
                                 </div>

@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Search() {
     return (
-        <div className="w-full" id="searchBarExample">
-            <div className="input-group relative flex flex-wrap items-stretch w-full mb-4 rounded">
+        <div className="w-4/5" id="searchBarExample">
+            <div className="input-group relative flex flex-wrap items-stretch w-full rounded">
                 <span
                     className="input-group-text flex items-center px-3 py-1.5 text-base font-normal text-gray-700 text-center whitespace-nowrap rounded"
                     id="basic-addon2">

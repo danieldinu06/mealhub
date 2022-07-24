@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e676f472-67f4-486a-83f1-8f0663ffb208" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Restaurant.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Restaurant.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RestaurantsPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RestaurantsPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/config/Configurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/config/Configurator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/Drink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/Meal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +49,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/daniel/CodeCool/Advanced/Week 2/el-proyecte-grande-sprint-2-java-freeDaTitty/client&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/daniel/CodeCool/Advanced/Week 2/hogwarts-houses-1-java-freeDaTitty/client&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -75,6 +82,12 @@
       <workItem from="1655964048175" duration="31843000" />
       <workItem from="1657189406368" duration="11884000" />
       <workItem from="1657259336421" duration="6133000" />
+      <workItem from="1658065981328" duration="20000" />
+      <workItem from="1658252428584" duration="1600000" />
+      <workItem from="1658302420850" duration="421000" />
+      <workItem from="1658312912357" duration="5028000" />
+      <workItem from="1658383794966" duration="1487000" />
+      <workItem from="1658389893696" duration="15532000" />
     </task>
     <servers />
   </component>
