@@ -38,10 +38,13 @@ public class RestaurantController {
     public ResponseEntity<Restaurant> getRestaurant(@PathVariable(value = "id") Long id) {
         Optional<Restaurant> restaurant = restaurantService.getRestaurant(id);
 
-        return restaurant.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
+        return restaurant.map(
+                value -> new ResponseEntity<>(value, HttpStatus.OK)
+                ).orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping(path = "/{id}")
+    @ResponseBody
     public ResponseEntity<Void> deleteRestaurant(@PathVariable(value = "id") Long id) {
         Optional<Restaurant> restaurant = restaurantService.getRestaurant(id);
 

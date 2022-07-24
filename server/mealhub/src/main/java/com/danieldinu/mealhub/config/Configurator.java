@@ -3,6 +3,8 @@ package com.danieldinu.mealhub.config;
 import com.danieldinu.mealhub.model.Drink;
 import com.danieldinu.mealhub.model.Meal;
 import com.danieldinu.mealhub.model.Restaurant;
+import com.danieldinu.mealhub.model.utils.DrinkType;
+import com.danieldinu.mealhub.model.utils.MealType;
 import com.danieldinu.mealhub.service.DrinkService;
 import com.danieldinu.mealhub.service.MealService;
 import com.danieldinu.mealhub.service.RestaurantService;
@@ -43,20 +45,52 @@ public class Configurator {
              *   MEALS
              */
 
-            Meal meal = new Meal("Papanasi", "/images/papanasi.jpg");
-            Meal meal1 = new Meal("Gogosi", "/images/gogosi.jpg");
+            Meal papanasi = new Meal(
+                    "Papanasi",
+                    "/images/papanasi.jpg",
+                    "branza de vaci grasa, faina, praf de copt, oua, sare, zahar vanilat, coaja rasa de la lamaie, ulei",
+                    18.00,
+                    MealType.DESERT
+                    );
+            Meal gogosi = new Meal(
+                    "Gogosi",
+                    "/images/gogosi.jpg",
+                    "faina, galbenusuri de ou, lapte, zahar vanilat, sare, coaja de lamaie, zahar, drojdie, zahar pudra vanilat, ulei",
+                    13.00,
+                    MealType.DESERT
+            );
 
-            mealService.addMeals(dristorBudapesta, List.of(meal, meal1));
+            mealService.addMeals(dristorBudapesta, List.of(papanasi, gogosi));
 
 
             /*
              *   DRINKS
              */
 
-            Drink cola = new Drink("Coca-Cola", "/images/cola.jpg");
-            Drink colaZero = new Drink("Coca-Cola Zero", "/images/colazero.jpg");
-            Drink fanta = new Drink("Fanta", "/images/fanta.jpg");
-            Drink sprite = new Drink("Sprite", "/images/sprite.jpg");
+            Drink cola = new Drink(
+                    "Coca-Cola",
+                    "/images/cola.jpg",
+                    7.00,
+                    DrinkType.NONALCOHOLIC
+            );
+            Drink colaZero = new Drink(
+                    "Coca-Cola Zero",
+                    "/images/colazero.jpg",
+                    7.00,
+                    DrinkType.NONALCOHOLIC
+            );
+            Drink fanta = new Drink(
+                    "Fanta",
+                    "/images/fanta.jpg",
+                    7.00,
+                    DrinkType.NONALCOHOLIC
+            );
+            Drink sprite = new Drink(
+                    "Sprite",
+                    "/images/sprite.jpg",
+                    7.00,
+                    DrinkType.NONALCOHOLIC
+            );
 
             drinkService.addDrinks(dristorBudapesta, List.of(cola, colaZero, fanta, sprite));
             drinkService.addDrinks(mcDonaldsVitan, List.of(cola, colaZero, fanta, sprite));

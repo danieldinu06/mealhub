@@ -1,5 +1,6 @@
 package com.danieldinu.mealhub.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,6 +34,7 @@ public class Order {
     private User user;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(
             name = "order_drink",
             joinColumns = @JoinColumn(name = "order_id"),
@@ -41,6 +43,7 @@ public class Order {
     private List<Drink> drinks = new ArrayList<>();
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(
             name = "order_meal",
             joinColumns = @JoinColumn(name = "order_id"),

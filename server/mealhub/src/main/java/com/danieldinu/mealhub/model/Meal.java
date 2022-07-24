@@ -1,5 +1,6 @@
 package com.danieldinu.mealhub.model;
 
+import com.danieldinu.mealhub.model.utils.MealType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
@@ -37,11 +38,16 @@ public class Meal {
     @Column(
             columnDefinition = "TEXT"
     )
+    @NonNull
     private String ingredients;
 
+    @NonNull
     private Double price;
 
     private Double discount;
+
+    @NonNull
+    private MealType type;
 
     @ManyToMany(mappedBy = "meals")
     @JsonIgnore
