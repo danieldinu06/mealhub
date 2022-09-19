@@ -39,8 +39,7 @@ public class JwtProviderService implements IJwtProviderService {
 
     @Override
     public String createToken(Authentication authentication) {
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        String username = userDetails.getUsername();
+        String username = (String) authentication.getPrincipal();
 
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMiliseconds);
