@@ -9,5 +9,10 @@ public enum MealType {
     SALAD,
     PASTA,
     SAUCE,
-    DESERT
+    DESERT,
+    FASTFOOD,
+    ISKENDER,
+    MENU,
+    LIPIE,
+    BUCKET
 }
