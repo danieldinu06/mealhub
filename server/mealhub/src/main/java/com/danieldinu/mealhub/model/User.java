@@ -1,11 +1,10 @@
 package com.danieldinu.mealhub.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.danieldinu.mealhub.model.utils.RoleType;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,6 +20,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class User {
     @Id
@@ -28,23 +28,31 @@ public class User {
     private Long id;
 
     @Column(
-            nullable = false,
             columnDefinition = "TEXT"
     )
+    @NonNull
+    @Size(max = 14)
     private String name;
 
     @Column(
-            nullable = false,
             unique = true,
             columnDefinition = "TEXT"
     )
+    @Size(max = 50)
     private String email;
 
     @Column(
-            nullable = false,
             columnDefinition = "TEXT"
     )
+    @Size(min = 4, message = "Minimum password length: 4 characters")
+    @NonNull
     private String password;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     @Column(
             nullable = false,
