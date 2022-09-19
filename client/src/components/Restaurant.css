@@ -1,0 +1,29 @@
+.centerPanel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+            /*"card card"*/
+            "catalogue body";
+    grid-gap: 3rem;
+    padding: 4rem;
+}
+
+.centerPanel > catalogue {
+    grid-area: catalogue;
+    background-color: #edede2;
+    padding: 1rem;
+}
+
+/* Products */
+
+.mealType, .drinkType {
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+    transition: 0.2s ease-in-out;
+}
+
+.mealType:hover, .drinkType:hover {
+    cursor: pointer;
+    color: #fa800b;
+}
+
