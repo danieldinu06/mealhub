@@ -56,7 +56,6 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
     @Column(
-            nullable = false,
             columnDefinition = "TEXT"
     )
     private String location;
