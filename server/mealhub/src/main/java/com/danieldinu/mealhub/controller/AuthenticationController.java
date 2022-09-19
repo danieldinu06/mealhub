@@ -58,7 +58,7 @@ public class AuthenticationController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProviderService.createToken(authentication);
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        UserDetailsImpl userDetails = UserDetailsImpl.build(userRepository.findByName((String) authentication.getPrincipal()));
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority).toList();
 
@@ -89,6 +89,8 @@ public class AuthenticationController {
 
         Set<String> stringRoles = registerRequest.getRoles();
         Set<Role> roles = new HashSet<>();
+
+        System.out.println(stringRoles);
 
         if (stringRoles == null) {
             Role userRole = roleRepository.findByRoleType(RoleType.ROLE_USER)
