@@ -39,6 +39,7 @@ public class User {
             columnDefinition = "TEXT"
     )
     @Size(max = 50)
+    @NonNull
     private String email;
 
     @Column(
