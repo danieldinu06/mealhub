@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 export default function OrderPanel() {
     return(
@@ -103,11 +104,11 @@ export default function OrderPanel() {
                         </div>
 
                         <div className="mt-6 flex justify-center">
-                            <a href="/checkout">
+                            <Link to={"/checkout"}>
                                 <button className="p-2 rounded-md bg-orange-500 w-36">
                                     Checkout
                                 </button>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
