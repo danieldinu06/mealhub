@@ -1,0 +1,97 @@
+:root {
+    --custom-height: 2.3rem;
+    --custom-width: 15rem;
+    --custom-color: #6495ed;
+    --error-color: #ff2929;
+}
+
+.loginPage {
+    background-image: linear-gradient(120deg, #ffdb76, #f6b308);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.profileImage {
+    height: calc(var(--custom-height) * 4);
+    width: calc(var(--custom-height) * 4);
+
+    border: 2px solid #000000;
+    border-radius: 50%;
+
+    background-color: #e3b63d;
+
+    position: absolute;
+
+    margin: 0 auto;
+    left: 0;
+    top: 100px;
+    right: 0;
+    z-index: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 70vh;
+    width: 27vw;
+
+    border: 1px solid #000000;
+
+    background-color: #ffffff;
+
+    position: absolute;
+
+    margin: 0 auto;
+    left: 0;
+    top: calc(36vh - 130px);
+    right: 0;
+}
+
+form > .loginCredentials {
+    display: flex;
+    flex-direction: column;
+}
+
+.credentials > label {
+    color: #000000;
+    margin: 0;
+}
+
+.credentials > input {
+    height: var(--custom-height);
+    width: var(--custom-width);
+
+    border-radius: 10px;
+
+    background-color: #f0f8ff;
+    color: #000000;
+
+    padding: 0.5rem;
+}
+
+.submitBtn > button {
+    height: var(--custom-height);
+    width: var(--custom-width);
+
+    border-radius: 1rem;
+
+    background-color: var(--custom-color);
+
+    margin-top: 1rem;
+}
+
+.forgotPassword, .already, .createAccount {
+    margin-top: 1rem;
+    color: var(--custom-color);
+}
+
+.input-error {
+    border: 2px solid var(--error-color);
+}
+
+.error {
+    color: var(--error-color);
+}
