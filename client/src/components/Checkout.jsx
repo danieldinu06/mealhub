@@ -4,7 +4,7 @@ import {useEffect} from "react";
 export default function Checkout() {
     useEffect(() => {
         document.querySelector(".AppContainer").style.setProperty('grid-template-columns', "auto 2fr");
-    })
+    }, [])
     return(
         <div className="p-24">
             <div className="text-4xl font-thin">
