@@ -21,7 +21,7 @@ export default function Meal() {
         <div className="grid gap-10">
             <div>
                 <p className={"type"}>
-                    Type of meals
+                    Meals
                 </p>
                 <div className={"grid grid-cols-3 gap-2"}>
                     {
