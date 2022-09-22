@@ -3,6 +3,7 @@ import axios from "axios";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTruck} from "@fortawesome/free-solid-svg-icons";
 import {faClock, faThumbsUp} from "@fortawesome/free-regular-svg-icons";
+import {Link} from "react-router-dom";
 
 export default function RestaurantsPanel() {
 
@@ -41,13 +42,13 @@ export default function RestaurantsPanel() {
                 {restaurants.map(restaurant => (
                     <div className="grid gap-1 shadow-lg border-b-2" key={restaurant.id}>
                         <div className={"relative h-48 overflow-hidden cursor-pointer"}>
-                            <a href={`/restaurants/${restaurant.id}`}>
+                            <Link to={`/restaurants/${restaurant.id}`}>
                                 <img className={"blur-sm -translate-y-1/4 hover:scale-110 ease-in-out duration-500"} src={restaurant.logo} alt="No restaurant"/>
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl font-bold
                             hover:text-white ease-in-out duration-500">
                                     {restaurant.name}
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div className={"flex justify-between pl-2 pr-2"}>
                             <div className={"flex gap-1 items-center"}>
@@ -68,7 +69,6 @@ export default function RestaurantsPanel() {
                         </div>
                     </div>
                 ))}
-
             </div>
         </div>
     );
