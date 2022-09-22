@@ -42,15 +42,48 @@ public class SecurityConfiguration{
 
     @Bean
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-            .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.authorizeRequests()
-                .antMatchers("/restaurants", "/login", "/register").permitAll()
-                .antMatchers("/**").hasRole("ADMIN")
-                .antMatchers("/checkout").hasAnyRole("USER", "ADMIN")
-                .anyRequest().authenticated();
+        http.cors().and().csrf().disable()
+            .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
+            .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+
+                /*
+                * Declares which URLs will have WHAT access type
+                * */
+
+                .and()
+                    .authorizeRequests()
+                    .antMatchers("/api/public/**", "/static/css/**", "/static/js/**", "/images/**").permitAll()
+                    .antMatchers("/api/private/**").hasAnyRole("USER", "ADMIN")
+                    .antMatchers("/**").hasRole("ADMIN")
+
+                    /*
+                    * Any other URL unconfigured will need authentication
+                    * */
+
+                    .anyRequest().authenticated()
+
+                    /*
+                    * Form Details
+                    * */
+
+                    .and()
+                        .formLogin()
+                        .loginProcessingUrl("/login")
+                        .defaultSuccessUrl("/restaurants");
+
+                        /*
+                        * LogOut Details
+                        * */
+
+//                        .and()
+//                            .logout(
+//                                logout -> logout
+//                                    .logoutUrl("/logout")
+//                                    .logoutSuccessUrl("/login")
+//                                    .invalidateHttpSession(true)
+//                            );
 
         http.authenticationProvider(authenticationProvider());
 
