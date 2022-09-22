@@ -21,7 +21,7 @@ export default function Drink() {
         <div className="grid gap-10">
             <div>
                 <p className={"type"}>
-                    Type of drinks
+                    Drinks
                 </p>
                 <div className={"grid grid-cols-3 gap-2"}>
                     {drinks.map(drink => (
