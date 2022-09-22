@@ -31,8 +31,8 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@CrossOrigin
-@RequestMapping("/")
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api/public/auth/")
 public class AuthenticationController {
     JwtAuthenticationManager authenticationManager;
     UserRepository userRepository;
@@ -49,7 +49,7 @@ public class AuthenticationController {
         this.roleRepository = roleRepository;
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
@@ -73,7 +73,12 @@ public class AuthenticationController {
         );
     }
 
-    @PostMapping("/register")
+    @PostMapping("logout")
+    public ResponseEntity<?> logout() {
+        return ResponseEntity.ok(new MessageResponse("User logged out successfully"));
+    }
+
+    @PostMapping("register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest registerRequest) {
         if (userRepository.existsByName(registerRequest.getUsername())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
@@ -89,8 +94,6 @@ public class AuthenticationController {
 
         Set<String> stringRoles = registerRequest.getRoles();
         Set<Role> roles = new HashSet<>();
-
-        System.out.println(stringRoles);
 
         if (stringRoles == null) {
             Role userRole = roleRepository.findByRoleType(RoleType.ROLE_USER)
