@@ -2,15 +2,9 @@ package com.danieldinu.mealhub.security.jwt;
 
 import com.danieldinu.mealhub.exception.TokenException;
 import com.danieldinu.mealhub.security.services.JwtProviderService;
-import com.danieldinu.mealhub.security.services.UserDetailsImpl;
-import com.danieldinu.mealhub.security.services.UserDetailsServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 
