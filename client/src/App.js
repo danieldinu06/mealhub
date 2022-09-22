@@ -1,51 +1,32 @@
 import './App.css';
-import Sidebar from "./components/Sidebar";
-import DiscountCarousel from "./components/DiscountCarousel";
-import OrderPanel from "./components/OrderPanel";
-import RestaurantsPanel from "./components/RestaurantsPanel";
-import Footer from "./components/Footer";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Checkout from "./components/Checkout";
-import Restaurant from "./components/Restaurant";
-import Header from "./components/Header";
+import React from "react";
+import {useEffect, useState} from "react";
+import AuthService from "./services/auth.service";
 
 
 function App() {
+    const [showCheckout, setShowCheckout] = useState(false);
+    const [currentUser, setCurrentUser] = useState(undefined);
+
+    useEffect(() => {
+        const user = AuthService.getCurrentUser();
+
+        if (user) {
+            setCurrentUser(user);
+            setShowCheckout(user.roles.includes("ROLE_USER"));
+        }
+    }, []);
+
+    const logOut = () => {
+        AuthService.logout();
+    }
+
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Header />
-                <div className="AppContainer">
-                    <Sidebar />
-                    <Routes>
-                        <Route path={"/"} element={(
-                            <>
-                                <div className="container rounded-l-2xl">
-                                    <DiscountCarousel />
-                                    <RestaurantsPanel />
-                                </div>
-                                <OrderPanel/>
-                            </>
-                        )}/>
+        <div className="App">
+            <div className="AppContainer">
 
-                        <Route path={"/checkout"} element={(
-                            <Checkout/>
-                        )}/>
-
-                        <Route path={"/restaurant/:id"} element={(
-                            <>
-                                <div className="container rounded-l-2xl">
-                                    <Restaurant />
-                                </div>
-                                <OrderPanel/>
-                            </>
-                        )}/>
-
-                    </Routes>
-                </div>
-                <Footer />
             </div>
-        </BrowserRouter>
+        </div>
     );
 }
 
