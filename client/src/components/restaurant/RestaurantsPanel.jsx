@@ -10,7 +10,7 @@ export default function RestaurantsPanel() {
 
     useEffect(() => {
 
-        const url = "http://localhost:8080/restaurant"
+        const url = "http://localhost:8888/api/public/restaurants"
 
         axios.get(url)
             .then(response => setRestaurants(response.data))
@@ -41,7 +41,7 @@ export default function RestaurantsPanel() {
                 {restaurants.map(restaurant => (
                     <div className="grid gap-1 shadow-lg border-b-2" key={restaurant.id}>
                         <div className={"relative h-48 overflow-hidden cursor-pointer"}>
-                            <a href={`/restaurant/${restaurant.id}`}>
+                            <a href={`/restaurants/${restaurant.id}`}>
                                 <img className={"blur-sm -translate-y-1/4 hover:scale-110 ease-in-out duration-500"} src={restaurant.logo} alt="No restaurant"/>
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl font-bold
                             hover:text-white ease-in-out duration-500">

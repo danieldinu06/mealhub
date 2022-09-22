@@ -10,7 +10,7 @@ export default function Meal() {
     const [meals, setMeals] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:8080/restaurant/${id}/meals`
+        const url = `http://localhost:8888/api/public/restaurants/${id}/meals`
 
         axios.get(url)
             .then(response => setMeals(response.data))

@@ -14,14 +14,14 @@ export default function Restaurant() {
     const [drinkTypes, setDrinkTypes] = useState([]);
 
     useEffect(() => {
-        const restaurantUrl = `http://localhost:8080/restaurant/${id}`;
+        const restaurantUrl = `http://localhost:8888/api/public/restaurants/${id}`;
         const drinksUrl = restaurantUrl + '/drinks';
 
         axios.get(restaurantUrl)
             .then(response => setRestaurant(response.data))
             .catch(error => console.log(error));
 
-        axios.get('http://localhost:8080/meals')
+        axios.get('http://localhost:8888/meals')
             .then(response => setMealTypes(response.data))
             .catch(error => console.log(error));
 
@@ -29,7 +29,7 @@ export default function Restaurant() {
             .then(response => setDrinks(response.data))
             .catch(error => console.log(error));
 
-        axios.get('http://localhost:8080/drinks')
+        axios.get('http://localhost:8888/drinks')
             .then(response => setDrinkTypes(response.data))
             .catch(error => console.log(error));
 

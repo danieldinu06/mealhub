@@ -1,4 +1,5 @@
-import '../App.css';
+import '../../App.css';
+import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowRightFromBracket, faHouse} from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +11,7 @@ export default function Sidebar() {
         <div>
             <div className="w-full bg-white sticky top-0" id="sidenavSecExample">
                 <div className="pt-4 pb-2 px-6">
-                    <a href="#">
+                    <a href="src/components/Navigation/Sidebar#">
                         <div className="flex items-center">
                             <div className="shrink-0">
                                 <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" className="rounded-full w-10"
@@ -25,14 +26,14 @@ export default function Sidebar() {
                 <ul className="relative px-1">
                     <li className="relative">
                         <a className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
-                           href="#" data-mdb-ripple="true" data-mdb-ripple-color="primary">
+                           href="src/components/Navigation/Sidebar#" data-mdb-ripple="true" data-mdb-ripple-color="primary">
                             <FontAwesomeIcon icon={faUser} className="w-5 h-5 mr-3"/>
                             <span className="text-lg">Profile</span>
                         </a>
                     </li>
                     <li className="relative">
                         <a className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
-                           href="/" data-mdb-ripple="true" data-mdb-ripple-color="primary">
+                           href="/CodeCool/Week 4/el-proyecte-grande-sprint-4-java-freeDaTitty/client/public" data-mdb-ripple="true" data-mdb-ripple-color="primary">
                             <FontAwesomeIcon icon={faHouse} className="w-5 h-5 mr-3"/>
                             <span className="text-lg">Main Page</span>
                         </a>
@@ -53,12 +54,12 @@ export default function Sidebar() {
                         <ul className="relative accordion-collapse collapse" id="collapseSidenavSecEx2"
                             aria-labelledby="sidenavSecEx2" data-bs-parent="#sidenavSecExample">
                             <li className="relative">
-                                <a href="#"
+                                <a href="/restaurants"
                                    className="flex items-center text-md py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
                                    data-mdb-ripple="true" data-mdb-ripple-color="primary">Restaurants</a>
                             </li>
                             <li className="relative">
-                                <a href="#"
+                                <a href="src/components/Navigation/Sidebar#"
                                    className="flex items-center text-md py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
                                    data-mdb-ripple="true" data-mdb-ripple-color="primary">Markets</a>
                             </li>
@@ -80,12 +81,12 @@ export default function Sidebar() {
                         <ul className="relative accordion-collapse collapse" id="collapseSidenavSecEx3"
                             aria-labelledby="sidenavSecEx3" data-bs-parent="#sidenavSecExample">
                             <li className="relative">
-                                <a href="#"
+                                <a href="src/components/Navigation/Sidebar#"
                                    className="flex items-center text-md py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
                                    data-mdb-ripple="true" data-mdb-ripple-color="primary">Contact Us</a>
                             </li>
                             <li className="relative">
-                                <a href="#"
+                                <a href="src/components/Navigation/Sidebar#"
                                    className="flex items-center text-md py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
                                    data-mdb-ripple="true" data-mdb-ripple-color="primary">FAQ</a>
                             </li>
@@ -93,7 +94,7 @@ export default function Sidebar() {
                     </li>
                     <li className="relative">
                         <a className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
-                           href="#" data-mdb-ripple="true" data-mdb-ripple-color="primary">
+                           href="src/components/Navigation/Sidebar#" data-mdb-ripple="true" data-mdb-ripple-color="primary">
                             <FontAwesomeIcon icon={faArrowRightFromBracket} className="w-5 h-5 mr-3"/>
                             <span className="text-lg">LogOut</span>
                         </a>

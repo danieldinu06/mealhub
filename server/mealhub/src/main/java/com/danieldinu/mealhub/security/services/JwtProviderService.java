@@ -1,10 +1,6 @@
 package com.danieldinu.mealhub.security.services;
 
 import com.danieldinu.mealhub.exception.TokenException;
-import com.danieldinu.mealhub.model.utils.RoleType;
-import com.danieldinu.mealhub.security.services.IJwtProviderService;
-import com.danieldinu.mealhub.security.services.UserDetailsServiceImpl;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -12,17 +8,12 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;
 import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 public class JwtProviderService implements IJwtProviderService {

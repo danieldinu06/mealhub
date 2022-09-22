@@ -5,7 +5,9 @@ export default function Header() {
     return(
         <div className={"flex justify-between items-center p-3 bg-gray-700"}>
             <div className={"font-bold text-xl text-white"}>
-                MealHub
+                <a href="/restaurants">
+                    MealHub
+                </a>
             </div>
             <Search />
             <div className={"font-bold text-xl text-white"}>
