@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/checkout")
+@RequestMapping(path = "/api/private/checkout")
 @CrossOrigin
 public class OrderController {
     private final OrderService orderService;

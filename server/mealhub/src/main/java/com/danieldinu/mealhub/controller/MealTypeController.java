@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/meals")
+@RequestMapping(path = "/api/public/meals")
 @CrossOrigin
 public class MealTypeController {
     @GetMapping

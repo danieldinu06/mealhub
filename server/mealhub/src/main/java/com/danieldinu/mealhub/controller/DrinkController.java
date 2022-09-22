@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping(path = "/restaurant/{id}/drinks")
+@RequestMapping(path = "/api/public/restaurants/{id}/drinks")
 @CrossOrigin
 public class DrinkController {
     private final DrinkService drinkService;

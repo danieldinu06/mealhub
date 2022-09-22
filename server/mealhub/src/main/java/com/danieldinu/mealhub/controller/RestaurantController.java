@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/restaurants")
+@RequestMapping(path = "/api/public/restaurants")
 @CrossOrigin
 public class RestaurantController {
     private final RestaurantService restaurantService;
