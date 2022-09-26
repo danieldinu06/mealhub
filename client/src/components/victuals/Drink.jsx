@@ -15,7 +15,7 @@ export default function Drink() {
         axios.get(url)
             .then(response => setDrinks(response.data))
             .catch(error => console.log(error));
-    }, []);
+    });
 
     return(
         <div className="grid gap-10">
