@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SecurityConfiguration{
+public class SecurityConfiguration {
     private final JwtProviderService jwtProviderService;
     private final UserDetailsServiceImpl userDetailsService;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -71,19 +71,19 @@ public class SecurityConfiguration{
                     .and()
                         .formLogin()
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/restaurants");
+                        .defaultSuccessUrl("/restaurants")
 
                         /*
                         * LogOut Details
                         * */
 
-//                        .and()
-//                            .logout(
-//                                logout -> logout
-//                                    .logoutUrl("/logout")
-//                                    .logoutSuccessUrl("/login")
-//                                    .invalidateHttpSession(true)
-//                            );
+                        .and()
+                            .logout(
+                                logout -> logout
+                                    .logoutUrl("/api/public/auth/logout")
+                                    .logoutSuccessUrl("/login")
+                                    .invalidateHttpSession(true)
+                            );
 
         http.authenticationProvider(authenticationProvider());
 
