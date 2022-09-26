@@ -1,7 +1,7 @@
 import React from 'react';
+import "./App.css";
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'tw-elements';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
@@ -24,9 +24,9 @@ root.render(
                 <Route element={<PublicRoutes/>}>
                     <Route path={"/restaurants"} element={(
                         <>
-                            <Header />
+                            <Header/>
                             <RestaurantsPage/>
-                            <Footer />
+                            <Footer/>
                         </>
                     )}/>
                     <Route path={"/restaurants/:id"} element={(
