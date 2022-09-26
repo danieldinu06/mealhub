@@ -2,6 +2,7 @@ package com.danieldinu.mealhub.config;
 
 import com.danieldinu.mealhub.model.Drink;
 import com.danieldinu.mealhub.model.Meal;
+import com.danieldinu.mealhub.model.Order;
 import com.danieldinu.mealhub.model.Restaurant;
 import com.danieldinu.mealhub.model.Role;
 import com.danieldinu.mealhub.model.utils.DrinkType;
@@ -9,8 +10,10 @@ import com.danieldinu.mealhub.model.utils.MealType;
 import com.danieldinu.mealhub.model.utils.RoleType;
 import com.danieldinu.mealhub.service.DrinkService;
 import com.danieldinu.mealhub.service.MealService;
+import com.danieldinu.mealhub.service.OrderService;
 import com.danieldinu.mealhub.service.RestaurantService;
 import com.danieldinu.mealhub.service.RoleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +22,12 @@ import java.util.List;
 
 @Configuration
 public class Configurator {
+
     @Bean
-    CommandLineRunner commandLineRunner(RestaurantService restaurantService, MealService mealService, DrinkService drinkService, RoleService roleService) {
+    @Autowired
+    CommandLineRunner commandLineRunner(
+            RestaurantService restaurantService, MealService mealService, DrinkService drinkService,
+            RoleService roleService, OrderService orderService) {
         return args -> {
             /*
              *   ROLES
@@ -303,6 +310,15 @@ public class Configurator {
             for (Restaurant restaurant : restaurants) {
                 drinkService.addDrinks(restaurant, nonAlcoholic);
             }
+
+            Order order = Order.builder()
+                    .price(2.0)
+                    .discount(0.0)
+                    .restaurant(List.of(dristorBudapesta))
+                    .drinks(nonAlcoholic)
+                    .build();
+
+            orderService.addOrder(order);
         };
     }
 }
