@@ -13,13 +13,20 @@ import java.util.Optional;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
+    private final RestaurantService restaurantService;
+    private final MealService mealService;
+    private final DrinkService drinkService;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, RestaurantService restaurantService, MealService mealService, DrinkService drinkService) {
         this.orderRepository = orderRepository;
+        this.restaurantService = restaurantService;
+        this.mealService = mealService;
+        this.drinkService = drinkService;
     }
 
     public void addOrder(Order order) {
+        order.setPrice(calculateOrderPrice(order));
         orderRepository.save(order);
     }
 

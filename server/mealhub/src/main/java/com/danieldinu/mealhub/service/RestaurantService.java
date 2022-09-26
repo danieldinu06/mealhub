@@ -2,6 +2,7 @@ package com.danieldinu.mealhub.service;
 
 import com.danieldinu.mealhub.model.Drink;
 import com.danieldinu.mealhub.model.Meal;
+import com.danieldinu.mealhub.model.Order;
 import com.danieldinu.mealhub.model.Restaurant;
 import com.danieldinu.mealhub.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class RestaurantService {
 
     public void addRestaurant(Restaurant restaurant) {
         restaurantRepository.save(restaurant);
+
+        restaurantRepository.findById(id);
     }
 
     public void addRestaurants(List<Restaurant> restaurants) {
@@ -44,6 +47,12 @@ public class RestaurantService {
         restaurant.setEstimatedTime(estimatedTime);
 
         restaurantRepository.save(restaurant);
+    }
+
+    public void addOrderToRestaurant(Long id, Order order) {
+        Restaurant restaurant = restaurantRepository.findById(id).get();
+
+        restaurant.addOrder
     }
 
     public void addMealToRestaurant(Long id, Meal meal) {
