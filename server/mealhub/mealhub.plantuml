@@ -1,0 +1,112 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class cards {
+   cvv: integer
+   expire_date: date
+   number: text
+   id: bigint
+}
+class coupons {
+   discount: double precision
+   user_id: bigint
+   id: bigint
+}
+class drinks {
+   discount: double precision
+   image: text
+   name: text
+   price: double precision
+   type: integer
+   id: bigint
+}
+class meals {
+   discount: double precision
+   image: text
+   ingredients: text
+   name: text
+   price: double precision
+   type: integer
+   id: bigint
+}
+class order_drink {
+   order_id: bigint
+   drink_id: bigint
+}
+class order_item {
+   quantity: integer
+   drink_id: bigint
+   meal_id: bigint
+   user_id: bigint
+   id: bigint
+}
+class order_meal {
+   order_id: bigint
+   meal_id: bigint
+}
+class orders {
+   discount: double precision
+   price: double precision
+   user_id: bigint
+   id: bigint
+}
+class restaurant_drink {
+   restaurant_id: bigint
+   drink_id: bigint
+}
+class restaurant_meal {
+   restaurant_id: bigint
+   meal_id: bigint
+}
+class restaurants {
+   delivery_fee: double precision
+   estimated_time: time
+   location: text
+   logo: text
+   name: text
+   rating: double precision
+   order_id: bigint
+   id: bigint
+}
+class roles {
+   role_type: varchar(20)
+   id: integer
+}
+class user_card {
+   user_id: bigint
+   card_id: bigint
+}
+class user_roles {
+   user_id: bigint
+   role_id: integer
+}
+class users {
+   email: text
+   location: text
+   name: text
+   password: text
+   id: bigint
+}
+
+coupons           -[#595959,plain]-^  users            : "user_id:id"
+order_drink       -[#595959,plain]-^  drinks           : "drink_id:id"
+order_drink       -[#595959,plain]-^  orders           : "order_id:id"
+order_item        -[#595959,plain]-^  drinks           : "drink_id:id"
+order_item        -[#595959,plain]-^  meals            : "meal_id:id"
+order_item        -[#595959,plain]-^  users            : "user_id:id"
+order_meal        -[#595959,plain]-^  meals            : "meal_id:id"
+order_meal        -[#595959,plain]-^  orders           : "order_id:id"
+orders            -[#595959,plain]-^  users            : "user_id:id"
+restaurant_drink  -[#595959,plain]-^  drinks           : "drink_id:id"
+restaurant_drink  -[#595959,plain]-^  restaurants      : "restaurant_id:id"
+restaurant_meal   -[#595959,plain]-^  meals            : "meal_id:id"
+restaurant_meal   -[#595959,plain]-^  restaurants      : "restaurant_id:id"
+restaurants       -[#595959,plain]-^  orders           : "order_id:id"
+user_card         -[#595959,plain]-^  cards            : "card_id:id"
+user_card         -[#595959,plain]-^  users            : "user_id:id"
+user_roles        -[#595959,plain]-^  roles            : "role_id:id"
+user_roles        -[#595959,plain]-^  users            : "user_id:id"
+@enduml
