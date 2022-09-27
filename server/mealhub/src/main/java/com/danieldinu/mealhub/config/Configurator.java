@@ -311,14 +311,14 @@ public class Configurator {
                 drinkService.addDrinks(restaurant, nonAlcoholic);
             }
 
-            Order order = Order.builder()
-                    .price(2.0)
-                    .discount(0.0)
-                    .restaurant(List.of(dristorBudapesta))
-                    .drinks(nonAlcoholic)
-                    .build();
-
-            orderService.addOrder(order);
+//            Order order = Order.builder()
+//                    .price(2.0)
+//                    .discount(0.0)
+//                    .restaurant(List.of(dristorBudapesta))
+//                    .drinks(nonAlcoholic)
+//                    .build();
+//
+//            orderService.addOrder(order);
         };
     }
 }
