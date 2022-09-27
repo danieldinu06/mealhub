@@ -23,8 +23,6 @@ public class RestaurantService {
 
     public void addRestaurant(Restaurant restaurant) {
         restaurantRepository.save(restaurant);
-
-        restaurantRepository.findById(id);
     }
 
     public void addRestaurants(List<Restaurant> restaurants) {
@@ -52,7 +50,7 @@ public class RestaurantService {
     public void addOrderToRestaurant(Long id, Order order) {
         Restaurant restaurant = restaurantRepository.findById(id).get();
 
-        restaurant.addOrder
+//        restaurant.addOrder
     }
 
     public void addMealToRestaurant(Long id, Meal meal) {
