@@ -73,5 +73,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "card_id")
     )
     private Set<Card> cards = new HashSet<>();
+
+    private String verificationCode;
 }
 
