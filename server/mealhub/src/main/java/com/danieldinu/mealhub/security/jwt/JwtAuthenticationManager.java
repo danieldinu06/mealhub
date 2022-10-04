@@ -1,5 +1,6 @@
 package com.danieldinu.mealhub.security.jwt;
 
+import com.danieldinu.mealhub.security.SecurityConfiguration;
 import com.danieldinu.mealhub.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -24,15 +25,20 @@ public class JwtAuthenticationManager implements AuthenticationManager {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         final String username = (authentication.getPrincipal() == null) ? "NONE_PROVIDED" : authentication.getName();
 
+        if ( !SecurityConfiguration.passwordEncoder()
+                .matches((CharSequence) authentication.getCredentials(), userDetailsService.loadUserByUsername(username).getPassword())) {
+            return null;
+        };
+
         if (username.equals("")) {
-            throw new BadCredentialsException("Invalid login username");
+            return null;
         }
 
         UserDetails user;
         try {
             user = userDetailsService.loadUserByUsername(username);
         } catch (UsernameNotFoundException e) {
-            throw new BadCredentialsException("Username doesn't exist");
+            return null;
         }
 
         return createSuccessfulAuthentication(authentication, user);
