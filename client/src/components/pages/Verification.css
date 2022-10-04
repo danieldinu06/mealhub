@@ -1,0 +1,33 @@
+.verificationPage {
+    background-image: linear-gradient(120deg, #ffdb76, #f6b308);
+
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verifyPanel{
+    height: 50vh;
+    width: 100vh;
+
+    background-color: #f3f0e5;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.verifyPanel > p {
+    font-size: 4vh;
+}
+
+.verifyPanel > a {
+    font-size: 3vh;
+
+    color: #5757d0;
+    text-decoration: underline;
+}
