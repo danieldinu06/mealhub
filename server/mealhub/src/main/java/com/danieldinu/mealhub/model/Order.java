@@ -40,14 +40,13 @@ public class Order {
 
     private Double discount;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Restaurant> restaurant = new ArrayList<>();
+    @ManyToOne
+    private Restaurant restaurant;
 
     @ManyToOne
     private User user;
 
     @ManyToMany
-    @JsonIgnore
     @JoinTable(
             name = "order_drink",
             joinColumns = @JoinColumn(name = "order_id"),
@@ -56,11 +55,18 @@ public class Order {
     private List<Drink> drinks = new ArrayList<>();
 
     @ManyToMany
-    @JsonIgnore
     @JoinTable(
             name = "order_meal",
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "meal_id")
     )
     private List<Meal> meals = new ArrayList<>();
+
+    public void addMeal(Meal meal) {
+        this.meals.add(meal);
+    }
+
+    public void addDrink(Drink drink) {
+        this.drinks.add(drink);
+    }
 }

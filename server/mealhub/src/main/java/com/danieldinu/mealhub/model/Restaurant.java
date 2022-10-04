@@ -1,11 +1,14 @@
 package com.danieldinu.mealhub.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Table(name = "restaurants")
@@ -53,8 +56,9 @@ public class Restaurant {
 
     private Time estimatedTime;
 
-    @ManyToOne
-    private Order order;
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Order> order = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -78,4 +82,6 @@ public class Restaurant {
     public void addDrink(Drink drink) {
         this.drinks.add(drink);
     }
+
+    public void addOrder(Order order) { this.order.add(order); }
 }
