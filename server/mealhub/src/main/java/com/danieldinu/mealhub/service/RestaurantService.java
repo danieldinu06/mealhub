@@ -47,12 +47,6 @@ public class RestaurantService {
         restaurantRepository.save(restaurant);
     }
 
-    public void addOrderToRestaurant(Long id, Order order) {
-        Restaurant restaurant = restaurantRepository.findById(id).get();
-
-//        restaurant.addOrder
-    }
-
     public void addMealToRestaurant(Long id, Meal meal) {
         Restaurant restaurant = restaurantRepository.findById(id).get();
 
