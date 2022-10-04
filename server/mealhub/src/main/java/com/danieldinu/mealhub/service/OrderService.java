@@ -13,16 +13,26 @@ import java.util.Optional;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
-    private final RestaurantService restaurantService;
-    private final MealService mealService;
-    private final DrinkService drinkService;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository, RestaurantService restaurantService, MealService mealService, DrinkService drinkService) {
+    public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
-        this.restaurantService = restaurantService;
-        this.mealService = mealService;
-        this.drinkService = drinkService;
+    }
+
+    public void addMealToOrder(Long id, Meal meal) {
+        Order order = orderRepository.findById(id).get();
+        order.addMeal(meal);
+        order.setPrice(calculateOrderPrice(order));
+
+        orderRepository.save(order);
+    }
+
+    public void addDrinkToOrder(Long id, Drink drink) {
+        Order order = orderRepository.findById(id).get();
+        order.addDrink(drink);
+        order.setPrice(calculateOrderPrice(order));
+
+        orderRepository.save(order);
     }
 
     public void addOrder(Order order) {
