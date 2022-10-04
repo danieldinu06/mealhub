@@ -3,18 +3,24 @@ import {Link} from "react-router-dom";
 import {useFormik} from "formik";
 import {registerSchema} from "../validations/registerValidation";
 import AuthService from "../../services/auth.service";
+import {toast, ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-const onSubmit = (values, actions) => {
-    AuthService.register(values.username, values.email, values.password)
-        .then(async (response) => {
-            await delay(2000);
-            window.location.replace("/login");
-        });
-}
+export  const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 function Register() {
+    const onSubmit = (values, actions) => {
+        AuthService.register(values.username, values.email, values.password)
+            .then( async (response) => {
+                toast.success(response.data.message);
+                await delay(2000);
+                window.location.replace("/verify");
+            })
+            .catch((error) => {
+                toast.error(error.response.data.message);
+            });
+    }
+
     const {values, errors, touched, handleBlur, handleChange, handleSubmit} = useFormik({
         initialValues: {
             "username": "",
@@ -85,6 +91,7 @@ function Register() {
                 <div className="submitBtn">
                     <button type={"submit"}>
                         Register
+                        <ToastContainer/>
                     </button>
                 </div>
 

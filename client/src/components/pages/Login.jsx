@@ -2,6 +2,8 @@ import "./Authentication.css"
 import {Link} from "react-router-dom";
 import AuthService from "../../services/auth.service";
 import {useState} from "react";
+import {toast, ToastContainer} from "react-toastify";
+import {delay} from "./Register";
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -17,9 +19,17 @@ function Login() {
 
     const handleLogin = () => {
         AuthService.login(username, password)
-            .then(() => {
+            .then(async (response) => {
+
+                console.log(response.data);
+                toast.success(response.data.message);
+
+                await delay(2000);
                 window.location.replace("/restaurants");
-            });
+
+            }).catch(error => {
+                toast.error(error.response.data.message);
+        });
     }
 
     return (
@@ -40,6 +50,7 @@ function Login() {
                 <div className="submitBtn">
                     <button onClick={handleLogin}>
                         Log In
+                        <ToastContainer/>
                     </button>
                 </div>
 
