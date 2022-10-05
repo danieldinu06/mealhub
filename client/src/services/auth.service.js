@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8888/api/public/auth";
 
-const config = {
+export const config = {
     headers: {
         "Access-Control-Allow-Origin": API_URL
     }
@@ -22,7 +22,6 @@ const login = (username, password) => {
     }, config)
         .then((response) => {
             if(response.data.token) {
-                // let token = JSON.stringify(response.data.token);
                 localStorage.setItem("user", JSON.stringify(response.data.token));
             }
 
