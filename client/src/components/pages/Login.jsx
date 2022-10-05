@@ -1,36 +1,34 @@
 import "./Authentication.css"
-import {Link} from "react-router-dom";
-import AuthService from "../../services/auth.service";
-import {useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
 import {toast, ToastContainer} from "react-toastify";
 import {delay} from "./Register";
+import AuthService from "../../services/auth.service";
+import {useFormik} from "formik";
+import {loginSchema} from "../validations/loginValidation";
+
 
 function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const handleUsernameChange = (event) => {
-        setUsername(event.target.value);
-    }
+    const {values, handleChange, handleSubmit} = useFormik({
+        initialValues: {
+            "username": "",
+            "password": "",
+        },
+        validationSchema: loginSchema,
+        onSubmit(values) {
+            AuthService.login(values.username, values.password)
+                .then(async () => {
+                    toast.success("Login successfully, please wait!");
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    }
-
-    const handleLogin = () => {
-        AuthService.login(username, password)
-            .then(async (response) => {
-
-                console.log(response.data);
-                toast.success(response.data.message);
-
-                await delay(2000);
-                window.location.replace("/restaurants");
-
-            }).catch(error => {
-                toast.error(error.response.data.message);
-        });
-    }
+                    await delay(3000);
+                    navigate("/restaurants");
+                })
+                .catch(error => {
+                    toast.error("Username or password incorrect!");
+                });
+        }
+    });
 
     return (
         <div className={"loginPage"}>
@@ -38,17 +36,27 @@ function Login() {
                 <img src={"/images/user.png"} alt="No User"/>
             </div>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="credentials">
                     <label htmlFor="username">Username</label>
-                    <input type="text" id={"username"} placeholder={"Enter your username"} onChange={handleUsernameChange}/>
+                    <input
+                        value={values.username}
+                        type="text"
+                        id={"username"}
+                        placeholder={"Enter your username"}
+                        onChange={handleChange}/>
 
                     <label htmlFor="password">Password</label>
-                    <input type="password" placeholder={"Password"} onChange={handlePasswordChange}/>
+                    <input
+                        value={values.password}
+                        type="password"
+                        id={"password"}
+                        placeholder={"Password"}
+                        onChange={handleChange}/>
                 </div>
 
                 <div className="submitBtn">
-                    <button onClick={handleLogin}>
+                    <button type={"submit"}>
                         Log In
                         <ToastContainer/>
                     </button>
