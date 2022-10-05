@@ -1,25 +1,15 @@
 import "./Authentication.css"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
 import {registerSchema} from "../validations/registerValidation";
 import AuthService from "../../services/auth.service";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export  const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+export const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 function Register() {
-    const onSubmit = (values, actions) => {
-        AuthService.register(values.username, values.email, values.password)
-            .then( async (response) => {
-                toast.success(response.data.message);
-                await delay(2000);
-                window.location.replace("/verify");
-            })
-            .catch((error) => {
-                toast.error(error.response.data.message);
-            });
-    }
+    const navigate = useNavigate();
 
     const {values, errors, touched, handleBlur, handleChange, handleSubmit} = useFormik({
         initialValues: {
@@ -29,7 +19,17 @@ function Register() {
             "confirmPassword": "",
         },
         validationSchema: registerSchema,
-        onSubmit,
+        onSubmit(values) {
+            AuthService.register(values.username, values.email, values.password)
+                .then( async (response) => {
+                    toast.success("User registered successfully, please wait!");
+                    await delay(3000);
+                    navigate("/verify");
+                })
+                .catch((error) => {
+                    toast.error(error.response.data.message);
+                });
+        },
     });
 
     return (
