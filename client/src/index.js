@@ -42,10 +42,10 @@ root.render(
                 <Route element={<ProtectedRoutes/>}>
                     <Route path={"/login"} element={(<Login/>)}/>
                     <Route path={"/register"} element={(<Register/>)}/>
+                    <Route path={"/verify"} element={(<VerificationPage/>)}/>
                 </Route>
 
                 <Route element={<PrivateRoutes/>}>
-                    <Route path={"/verify"} element={(<VerificationPage/>)}/>
                     <Route path={"/checkout"} element={(
                         <>
                             <Header/>
