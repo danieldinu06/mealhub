@@ -1,8 +1,11 @@
 package com.danieldinu.mealhub.controller;
 
 import com.danieldinu.mealhub.model.Drink;
+import com.danieldinu.mealhub.model.DrinkOrderElement;
 import com.danieldinu.mealhub.model.Meal;
 import com.danieldinu.mealhub.model.Order;
+import com.danieldinu.mealhub.repository.DrinkOrderElementRepository;
+import com.danieldinu.mealhub.service.DrinkOrderElementService;
 import com.danieldinu.mealhub.service.DrinkService;
 import com.danieldinu.mealhub.service.MealService;
 import com.danieldinu.mealhub.service.OrderService;
@@ -34,13 +37,13 @@ public class OrderController {
 
     private final DrinkService drinkService;
 
+
     @Autowired
     public OrderController(OrderService orderService, MealService mealService, DrinkService drinkService) {
         this.orderService = orderService;
         this.mealService = mealService;
         this.drinkService = drinkService;
     }
-
 
     @PostMapping
     public void addOrder(@Valid @RequestBody Order order) {
@@ -73,6 +76,7 @@ public class OrderController {
     @PostMapping(path = "/{order_id}/drink/{drink_id}")
     public void addDrinkToOrder(@PathVariable("order_id") Long order_id, @PathVariable("drink_id") Long drink_id) {
         Drink drink = drinkService.getDrink(drink_id).get();
+
         orderService.addDrinkToOrder(order_id, drink);
     }
 
