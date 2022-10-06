@@ -1,6 +1,6 @@
 :root {
-    --custom-height: 2.3rem;
-    --custom-width: 15rem;
+    --custom-height: 4vh;
+    --custom-width: 22vw;
     --custom-color: #6495ed;
     --error-color: #ff2929;
 }
@@ -24,7 +24,7 @@
 
     margin: 0 auto;
     left: 0;
-    top: 100px;
+    top: 15vh;
     right: 0;
     z-index: 1;
 }
@@ -46,7 +46,7 @@ form {
 
     margin: 0 auto;
     left: 0;
-    top: calc(36vh - 130px);
+    top: 24vh;
     right: 0;
 }
 
@@ -69,7 +69,7 @@ form > .loginCredentials {
     background-color: #f0f8ff;
     color: #000000;
 
-    padding: 0.5rem;
+    padding: 1vh 1vh;
 }
 
 .submitBtn > button {
