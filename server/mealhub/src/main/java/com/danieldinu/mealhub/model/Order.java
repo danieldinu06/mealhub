@@ -1,6 +1,5 @@
 package com.danieldinu.mealhub.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +9,6 @@ import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,13 +44,13 @@ public class Order {
     @ManyToOne
     private User user;
 
-    @ManyToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "order_drink",
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "drink_id")
     )
-    private List<Drink> drinks = new ArrayList<>();
+    private List<DrinkOrderElement> drinks = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -67,6 +65,38 @@ public class Order {
     }
 
     public void addDrink(Drink drink) {
-        this.drinks.add(drink);
+        boolean hasDrink = false;
+
+        for (DrinkOrderElement drinkOrderElement : drinks) {
+            if (drinkOrderElement.getDrink().equals(drink)) {
+                drinkOrderElement.setQuantity(drinkOrderElement.getQuantity() + 1);
+                hasDrink = true;
+            }
+        }
+
+        if (!hasDrink) {
+            drinks.add(new DrinkOrderElement(drink, 1));
+        }
+    }
+
+    public DrinkOrderElement getDrink(Drink drink) {
+        for (DrinkOrderElement drinkOrderElement : drinks) {
+            if (drinkOrderElement.getDrink().equals(drink)) {
+                return drinkOrderElement;
+            }
+        }
+        return null;
+    }
+
+    public void removeDrink(Drink drink) {
+        for (DrinkOrderElement drinkOrderElement : drinks) {
+            if (drinkOrderElement.getDrink().equals(drink)) {
+                if (drinkOrderElement.getQuantity() > 1) {
+                    drinkOrderElement.setQuantity(drinkOrderElement.getQuantity() - 1);
+                } else {
+                    drinks.remove(drinkOrderElement);
+                }
+            }
+        }
     }
 }
