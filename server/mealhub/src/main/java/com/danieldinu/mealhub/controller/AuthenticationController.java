@@ -125,7 +125,7 @@ public class AuthenticationController {
         user.setRoles(roles);
         userService.addUser(user);
 
-        userService.sendVerificationEmail(user, "http://localhost:3000/login");
+//        userService.sendVerificationEmail(user, "http://localhost:3000/login");
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
