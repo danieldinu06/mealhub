@@ -50,6 +50,7 @@ function Register() {
                         onBlur={handleBlur}
                         className={errors.username && touched.username ? "input-error" : ""}
                     />
+                    {errors.username && touched.username && <p className={"error"}>{errors.username}</p>}
 
                     <label htmlFor="email">Email</label>
                     <input
