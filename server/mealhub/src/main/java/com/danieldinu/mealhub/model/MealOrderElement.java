@@ -23,7 +23,7 @@ public class MealOrderElement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @NonNull
     private Meal meal;
 
