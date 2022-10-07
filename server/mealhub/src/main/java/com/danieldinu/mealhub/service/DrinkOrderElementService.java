@@ -30,14 +30,6 @@ public class DrinkOrderElementService {
     }
 
     public void removeDrink(DrinkOrderElement drinkOrderElement) {
-        for (DrinkOrderElement listElement : getAllDrinks()) {
-            if (listElement.equals(drinkOrderElement)) {
-                if (listElement.getQuantity() > 1) {
-                    listElement.setQuantity(listElement.getQuantity() - 1);
-                } else {
-                    drinkOrderElementRepository.delete(drinkOrderElement);
-                }
-            }
-        }
+        drinkOrderElementRepository.delete(drinkOrderElement);
     }
 }
