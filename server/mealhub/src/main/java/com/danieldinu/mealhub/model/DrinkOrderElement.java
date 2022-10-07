@@ -28,6 +28,7 @@ public class DrinkOrderElement {
     @OneToOne(cascade = CascadeType.ALL)
     @NonNull
     private Drink drink;
+
     @NonNull
     private Integer quantity;
 }
