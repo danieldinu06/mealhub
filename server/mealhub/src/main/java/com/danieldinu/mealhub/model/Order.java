@@ -29,7 +29,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Order {
+public class Order{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -58,25 +58,14 @@ public class Order {
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "meal_id")
     )
-    private List<Meal> meals = new ArrayList<>();
-
-    public void addMeal(Meal meal) {
-        this.meals.add(meal);
-    }
+    private List<MealOrderElement> meals = new ArrayList<>();
 
     public void addDrink(Drink drink) {
-        boolean hasDrink = false;
+        DrinkOrderElement.addDrink(drink, drinks);
+    }
 
-        for (DrinkOrderElement drinkOrderElement : drinks) {
-            if (drinkOrderElement.getDrink().equals(drink)) {
-                drinkOrderElement.setQuantity(drinkOrderElement.getQuantity() + 1);
-                hasDrink = true;
-            }
-        }
-
-        if (!hasDrink) {
-            drinks.add(new DrinkOrderElement(drink, 1));
-        }
+    public void addMeal(Meal meal) {
+        MealOrderElement.addMeal(meal, meals);
     }
 
     public DrinkOrderElement getDrink(Drink drink) {
@@ -88,15 +77,40 @@ public class Order {
         return null;
     }
 
-    public void removeDrink(Drink drink) {
+    public MealOrderElement getMeal(Meal meal) {
+        for (MealOrderElement mealOrderElement : meals) {
+            if (mealOrderElement.getMeal().equals(meal)) {
+                return mealOrderElement;
+            }
+        }
+        return null;
+    }
+
+    public void decreaseNumberOfDrinks(Drink drink) {
         for (DrinkOrderElement drinkOrderElement : drinks) {
             if (drinkOrderElement.getDrink().equals(drink)) {
                 if (drinkOrderElement.getQuantity() > 1) {
                     drinkOrderElement.setQuantity(drinkOrderElement.getQuantity() - 1);
-                } else {
-                    drinks.remove(drinkOrderElement);
                 }
             }
         }
+    }
+
+    public void decreaseNumberOfMeals(Meal meal) {
+        for (MealOrderElement mealOrderElement : meals) {
+            if (mealOrderElement.getMeal().equals(meal)) {
+                if (mealOrderElement.getQuantity() > 1) {
+                    mealOrderElement.setQuantity(mealOrderElement.getQuantity() - 1);
+                }
+            }
+        }
+    }
+
+    public void removeDrink(Drink drink) {
+        drinks.removeIf(drinkOrderElement -> drinkOrderElement.getDrink().equals(drink));
+    }
+
+    public void removeMeal(Meal meal) {
+        meals.removeIf(mealOrderElement -> mealOrderElement.getMeal().equals(meal));
     }
 }
