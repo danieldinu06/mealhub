@@ -3,31 +3,35 @@ package com.danieldinu.mealhub.service;
 import com.danieldinu.mealhub.model.Drink;
 import com.danieldinu.mealhub.model.DrinkOrderElement;
 import com.danieldinu.mealhub.model.Meal;
+import com.danieldinu.mealhub.model.MealOrderElement;
 import com.danieldinu.mealhub.model.Order;
-import com.danieldinu.mealhub.repository.DrinkOrderElementRepository;
 import com.danieldinu.mealhub.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
     private final DrinkOrderElementService drinkOrderElementService;
+    private final MealOrderElementService mealOrderElementService;
 
-    public OrderService(OrderRepository orderRepository, DrinkOrderElementService drinkOrderElementService) {
+    @Autowired
+    public OrderService(OrderRepository orderRepository, DrinkOrderElementService drinkOrderElementService, MealOrderElementService mealOrderElementService) {
         this.orderRepository = orderRepository;
         this.drinkOrderElementService = drinkOrderElementService;
+        this.mealOrderElementService = mealOrderElementService;
     }
 
     public void addMealToOrder(Long id, Meal meal) {
         Order order = orderRepository.findById(id).get();
         order.addMeal(meal);
         order.setPrice(calculateOrderPrice(order));
+
+        MealOrderElement mealOrderElement = order.getMeal(meal);
+        mealOrderElementService.addMeal(mealOrderElement);
 
         orderRepository.save(order);
     }
@@ -43,9 +47,35 @@ public class OrderService {
         orderRepository.save(order);
     }
 
+    public void removeMealFromOrder(Long id, Meal meal) {
+        Order order = orderRepository.findById(id).get();
+        MealOrderElement mealOrderElement = order.getMeal(meal);
+
+        if(mealOrderElement.getQuantity() == 1) {
+            order.removeMeal(meal);
+            mealOrderElementService.removeMeal(mealOrderElement);
+        } else {
+            order.decreaseNumberOfMeals(meal);
+            mealOrderElementService.addMeal(mealOrderElement);
+        }
+
+        order.setPrice(calculateOrderPrice(order));
+
+        orderRepository.save(order);
+    }
+
     public void removeDrinkFromOrder(Long id, Drink drink) {
         Order order = orderRepository.findById(id).get();
-        order.removeDrink(drink);
+        DrinkOrderElement drinkOrderElement = order.getDrink(drink);
+
+        if(drinkOrderElement.getQuantity() == 1) {
+            order.removeDrink(drink);
+            drinkOrderElementService.removeDrink(drinkOrderElement);
+        } else {
+            order.decreaseNumberOfDrinks(drink);
+            drinkOrderElementService.addDrink(drinkOrderElement);
+        }
+
         order.setPrice(calculateOrderPrice(order));
 
         orderRepository.save(order);
@@ -72,19 +102,21 @@ public class OrderService {
     }
 
     private Double calculateOrderPrice(Order order) {
-        List<Meal> meals = order.getMeals();
+        List<MealOrderElement> mealOrderElements = order.getMeals();
         List<DrinkOrderElement> drinkOrderElements = order.getDrinks();
 
-        Double price = 0.0;
+        double price = 0.0;
 
-        if (!meals.isEmpty()) {
-            for (Meal meal : meals) {
-                price += meal.getPrice();
+        if (!mealOrderElements.isEmpty()) {
+            for (MealOrderElement mealOrderElement : mealOrderElements) {
+                price += (mealOrderElement.getMeal().getPrice() * mealOrderElement.getQuantity());;
             }
         }
 
-        for (DrinkOrderElement drinkOrderElement : drinkOrderElements) {
-            price += (drinkOrderElement.getDrink().getPrice() * drinkOrderElement.getQuantity());
+        if (!drinkOrderElements.isEmpty()) {
+            for (DrinkOrderElement drinkOrderElement : drinkOrderElements) {
+                price += (drinkOrderElement.getDrink().getPrice() * drinkOrderElement.getQuantity());
+            }
         }
 
         return price;
