@@ -73,11 +73,22 @@ public class OrderController {
         orderService.addMealToOrder(order_id, meal);
     }
 
+    @DeleteMapping(path = "{order_id}/meal/{meal_id}/delete")
+    public void deleteMealFromOrder(@PathVariable("order_id") Long order_id, @PathVariable("meal_id") Long meal_id) {
+        Meal meal = mealService.getMeal(meal_id).get();
+        orderService.removeMealFromOrder(order_id, meal);
+    }
+
     @PostMapping(path = "/{order_id}/drink/{drink_id}")
     public void addDrinkToOrder(@PathVariable("order_id") Long order_id, @PathVariable("drink_id") Long drink_id) {
         Drink drink = drinkService.getDrink(drink_id).get();
-
         orderService.addDrinkToOrder(order_id, drink);
+    }
+
+    @DeleteMapping(path = "{order_id}/drink/{drink_id}/delete")
+    public void deleteDrinkFromOrder(@PathVariable("order_id") Long order_id, @PathVariable("drink_id") Long drink_id) {
+        Drink drink = drinkService.getDrink(drink_id).get();
+        orderService.removeDrinkFromOrder(order_id, drink);
     }
 
     @DeleteMapping(path = "/{order_id}/delete")
