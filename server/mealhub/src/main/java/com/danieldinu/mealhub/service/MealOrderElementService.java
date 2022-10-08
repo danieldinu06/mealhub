@@ -14,11 +14,11 @@ public class MealOrderElementService {
         this.mealOrderElementRepository = mealOrderElementRepository;
     }
 
-    public void addDrink(MealOrderElement mealOrderElement) {
+    public void addMeal(MealOrderElement mealOrderElement) {
         mealOrderElementRepository.save(mealOrderElement);
     }
 
-    public void removeDrink(MealOrderElement mealOrderElement) {
+    public void removeMeal(MealOrderElement mealOrderElement) {
         mealOrderElementRepository.delete(mealOrderElement);
     }
 }
