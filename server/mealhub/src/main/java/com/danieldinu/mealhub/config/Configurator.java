@@ -2,7 +2,6 @@ package com.danieldinu.mealhub.config;
 
 import com.danieldinu.mealhub.model.Drink;
 import com.danieldinu.mealhub.model.Meal;
-import com.danieldinu.mealhub.model.Order;
 import com.danieldinu.mealhub.model.Restaurant;
 import com.danieldinu.mealhub.model.Role;
 import com.danieldinu.mealhub.model.utils.DrinkType;
@@ -27,7 +26,7 @@ public class Configurator {
     @Autowired
     CommandLineRunner commandLineRunner(
             RestaurantService restaurantService, MealService mealService, DrinkService drinkService,
-            RoleService roleService, OrderService orderService) {
+            RoleService roleService) {
         return args -> {
             /*
              *   ROLES
@@ -117,141 +116,141 @@ public class Configurator {
              * Dristor
              */
 
-            Meal iskenderKebapAmestec = new Meal(
-                    "Iskender Kebap amestec",
-                    "/images/meals/dristor/iskender/amestec.jpg",
-                    "carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti",
-                    49.00,
-                    MealType.ISKENDER
-            );
+            Meal iskenderKebapAmestec = Meal.builder()
+                    .name("Iskender Kebap amestec")
+                    .image("/images/meals/dristor/iskender/amestec.jpg")
+                    .ingredients("carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti")
+                    .price(49.00)
+                    .mealType(MealType.ISKENDER)
+                    .build();
 
-            Meal iskenderKebapPui = new Meal(
-                    "Iskender Kebap amestec",
-                    "/images/meals/dristor/iskender/pui.jpg",
-                    "carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti",
-                    45.00,
-                    MealType.ISKENDER
-            );
+            Meal iskenderKebapPui = Meal.builder()
+                    .name("Iskender Kebap pui")
+                    .image("/images/meals/dristor/iskender/pui.jpg")
+                    .ingredients("carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti")
+                    .price(45.00)
+                    .mealType(MealType.ISKENDER)
+                    .build();
 
-            Meal iskenderKebapVita = new Meal(
-                    "Iskender Kebap amestec",
-                    "/images/meals/dristor/iskender/vita.jpg",
-                    "carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti",
-                    49.00,
-                    MealType.ISKENDER
-            );
+            Meal iskenderKebapVita = Meal.builder()
+                    .name("Iskender Kebap vita")
+                    .image("/images/meals/dristor/iskender/vita.jpg")
+                    .ingredients("carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti")
+                    .price(49.00)
+                    .mealType(MealType.ISKENDER)
+                    .build();
 
-            Meal lipieAmestec = new Meal(
-                    "Lipie amestec",
-                    "/images/meals/dristor/lipie/amestec.jpg",
-                    "ardei dulci, carne, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel",
-                    34.00,
-                    MealType.LIPIE
-            );
+            Meal lipieAmestec = Meal.builder()
+                    .name("Lipie amestec")
+                    .image("/images/meals/dristor/lipie/amestec.jpg")
+                    .ingredients("ardei dulci, carne, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel")
+                    .price(34.00)
+                    .mealType(MealType.LIPIE)
+                    .build();
 
-            Meal lipiePui = new Meal(
-                    "Lipie pui",
-                    "/images/meals/dristor/lipie/pui.jpg",
-                    "ardei dulci, carne, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel",
-                    31.00,
-                    MealType.LIPIE
-            );
+            Meal lipiePui = Meal.builder()
+                    .name("Lipie pui")
+                    .image("/images/meals/dristor/lipie/pui.jpg")
+                    .ingredients("ardei dulci, carne, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel")
+                    .price(31.00)
+                    .mealType(MealType.LIPIE)
+                    .build();
 
-            Meal lipieVegetariana = new Meal(
-                    "Lipie vegetariana",
-                    "/images/meals/dristor/lipie/vegetariana.jpg",
-                    "ardei dulci, cartofi, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel",
-                    21.00,
-                    MealType.LIPIE
-            );
+            Meal lipieVegetariana = Meal.builder()
+                    .name("Lipie vegetariana")
+                    .image("/images/meals/dristor/lipie/vegetariana.jpg")
+                    .ingredients("ardei dulci, cartofi, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel")
+                    .price(21.00)
+                    .mealType(MealType.LIPIE)
+                    .build();
 
-            Meal lipieVita = new Meal(
-                    "Lipie vita",
-                    "/images/meals/dristor/lipie/vita.jpg",
-                    "ardei dulci, cartofi, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel",
-                    38.00,
-                    MealType.LIPIE
-            );
+            Meal lipieVita = Meal.builder()
+                    .name("Lipie vita")
+                    .image("/images/meals/dristor/lipie/vita.jpg")
+                    .ingredients("ardei dulci, cartofi, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel")
+                    .price(38.00)
+                    .mealType(MealType.LIPIE)
+                    .build();
 
-            Meal meniuLipiePui = new Meal(
-                    "Meniu lipie pui",
-                    "/images/meals/dristor/meniu/pui.jpg",
-                    "lipie pui, cartofi, sos, bautura",
-                    39.00,
-                    MealType.MENU
-            );
+            Meal meniuLipiePui = Meal.builder()
+                    .name("Meniu lipie pui")
+                    .image("/images/meals/dristor/meniu/pui.jpg")
+                    .ingredients("lipie pui, cartofi, sos, bautura")
+                    .price(39.00)
+                    .mealType(MealType.MENU)
+                    .build();
 
-            Meal meniuLipieAmestec = new Meal(
-                    "Meniu lipie amestec",
-                    "/images/meals/dristor/meniu/amestec.jpg",
-                    "lipie amestec, cartofi, sos, bautura",
-                    42.00,
-                    MealType.MENU
-            );
+            Meal meniuLipieAmestec = Meal.builder()
+                    .name("Meniu lipie amestec")
+                    .image("/images/meals/dristor/meniu/amestec.jpg")
+                    .ingredients("lipie amestec, cartofi, sos, bautura")
+                    .price(42.00)
+                    .mealType(MealType.MENU)
+                    .build();
 
-            Meal meniuLipieVita = new Meal(
-                    "Meniu lipie vita",
-                    "/images/meals/dristor/meniu/vita.jpg",
-                    "lipie vita, cartofi, sos, bautura",
-                    46.00,
-                    MealType.MENU
-            );
+            Meal meniuLipieVita = Meal.builder()
+                    .name("Meniu lipie vita")
+                    .image("/images/meals/dristor/meniu/vita.jpg")
+                    .ingredients("lipie vita, cartofi, sos, bautura")
+                    .price(46.00)
+                    .mealType(MealType.MENU)
+                    .build();
 
-            Meal meniuLipieVegetariana = new Meal(
-                    "Meniu lipie vegetariana",
-                    "/images/meals/dristor/meniu/vegetariana.jpg",
-                    "lipie vegetariana, cartofi, sos, bautura",
-                    31.00,
-                    MealType.MENU
-            );
+            Meal meniuLipieVegetariana = Meal.builder()
+                    .name("Meniu lipie vegetariana")
+                    .image("/images/meals/dristor/meniu/vegetariana.jpg")
+                    .ingredients("lipie vegetariana, cartofi, sos, bautura")
+                    .price(31.00)
+                    .mealType(MealType.MENU)
+                    .build();
 
-            Meal ciorbaDeBurta = new Meal(
-                    "Ciorba de burta",
-                    "/images/meals/dristor/diverse/ciorbaBurta.jpg",
-                    "linte, ardei rosu, patrunjel, usturoi, morcov, ceapa, rosie, dafin",
-                    12.00,
-                    MealType.SOUP
-            );
+            Meal ciorbaDeBurta = Meal.builder()
+                    .name("Ciorba de burta")
+                    .image("/images/meals/dristor/diverse/ciorbaBurta.jpg")
+                    .ingredients("linte, ardei rosu, patrunjel, usturoi, morcov, ceapa, rosie, dafin")
+                    .price(12.00)
+                    .mealType(MealType.SOUP)
+                    .build();
 
-            Meal micDejun = new Meal(
-                    "Mic dejun",
-                    "/images/meals/dristor/diverse/micDejun.jpg",
-                    "oua, masline, branza, castravete, cascaval, cartofi, rosie, unt",
-                    38.00,
-                    MealType.BREAKFAST
-            );
+            Meal micDejun = Meal.builder()
+                    .name("Mic dejun")
+                    .image("/images/meals/dristor/diverse/micDejun.jpg")
+                    .ingredients("oua, masline, branza, castravete, cascaval, cartofi, rosie, unt")
+                    .price(38.00)
+                    .mealType(MealType.BREAKFAST)
+                    .build();
 
-            Meal supaDeLinte = new Meal(
-                    "Supa de linte",
-                    "/images/meals/dristor/diverse/supaLinte.jpg",
-                    "smantana, burta de vita, otet, usturoi, pastarnac, telina, ou, morcov, ceapa",
-                    17.00,
-                    MealType.SOUP
-            );
+            Meal supaDeLinte = Meal.builder()
+                    .name("Supa de linte")
+                    .image("/images/meals/dristor/diverse/supaLinte.jpg")
+                    .ingredients("smantana, burta de vita, otet, usturoi, pastarnac, telina, ou, morcov, ceapa")
+                    .price(17.00)
+                    .mealType(MealType.SOUP)
+                    .build();
 
-            Meal orezCuLapte = new Meal(
-                    "Orez cu lapte",
-                    "/images/meals/dristor/desert/orezLapte.jpg",
-                    "orez, lapte, scortisoara, vanilie, zahar",
-                    17.00,
-                    MealType.DESERT
-            );
+            Meal orezCuLapte = Meal.builder()
+                    .name("Orez cu lapte")
+                    .image("/images/meals/dristor/desert/orezLapte.jpg")
+                    .ingredients("orez, lapte, scortisoara, vanilie, zahar")
+                    .price(17.00)
+                    .mealType(MealType.DESERT)
+                    .build();
 
-            Meal baklava = new Meal(
-                    "Baklava",
-                    "/images/meals/dristor/desert/baklava.jpg",
-                    "faina, ou, apa, zahar, lamaie, nuca, unt",
-                    4.00,
-                    MealType.DESERT
-            );
+            Meal baklava = Meal.builder()
+                    .name("Baklava")
+                    .image("/images/meals/dristor/desert/baklava.jpg")
+                    .ingredients("faina, ou, apa, zahar, lamaie, nuca, unt")
+                    .price(4.00)
+                    .mealType(MealType.DESERT)
+                    .build();
 
-            Meal negresa = new Meal(
-                    "Negresa",
-                    "/images/meals/dristor/desert/negresa.jpg",
-                    "faina, ou, lapte, zahar, cacaot",
-                    14.00,
-                    MealType.DESERT
-            );
+            Meal negresa = Meal.builder()
+                    .name("Negresa")
+                    .image("/images/meals/dristor/desert/negresa.jpg")
+                    .ingredients("faina, ou, lapte, zahar, cacaot")
+                    .price(14.00)
+                    .mealType(MealType.DESERT)
+                    .build();
 
             List<Meal> dristorMeals = List.of(
                     iskenderKebapPui, iskenderKebapAmestec, iskenderKebapVita,
@@ -266,44 +265,45 @@ public class Configurator {
              *   DRINKS
              */
 
-            Drink apaPlata = new Drink(
-                    "Apa plata",
-                    "/images/drinks/nonalcoholic/apaplata.jpg",
-                    6.00,
-                    DrinkType.NONALCOHOLIC
-            );
+            Drink apaPlata = Drink.builder()
+                    .name("Apa plata")
+                    .image("/images/drinks/nonalcoholic/apaplata.jpg")
+                    .price(6.00)
+                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .build();
 
-            Drink apaMinerala = new Drink(
-                    "Apa minerala",
-                    "/images/drinks/nonalcoholic/apaplata.jpg",
-                    6.00,
-                    DrinkType.NONALCOHOLIC
-            );
+            Drink apaMinerala = Drink.builder()
+                    .name("Apa minerala")
+                    .image("/images/drinks/nonalcoholic/apaminerala.jpg")
+                    .price(6.00)
+                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .build();
 
-            Drink cola = new Drink(
-                    "Coca-Cola",
-                    "/images/drinks/nonalcoholic/cola.jpg",
-                    7.00,
-                    DrinkType.NONALCOHOLIC
-            );
-            Drink colaZero = new Drink(
-                    "Coca-Cola Zero",
-                    "/images/drinks/nonalcoholic/colazero.jpg",
-                    7.00,
-                    DrinkType.NONALCOHOLIC
-            );
-            Drink fanta = new Drink(
-                    "Fanta",
-                    "/images/drinks/nonalcoholic/fanta.jpg",
-                    7.00,
-                    DrinkType.NONALCOHOLIC
-            );
-            Drink sprite = new Drink(
-                    "Sprite",
-                    "/images/drinks/nonalcoholic/sprite.jpg",
-                    7.00,
-                    DrinkType.NONALCOHOLIC
-            );
+            Drink cola = Drink.builder()
+                    .name("Coca-Cola")
+                    .image("/images/drinks/nonalcoholic/cola.jpg")
+                    .price(7.00)
+                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .build();
+
+            Drink colaZero = Drink.builder()
+                    .name("Coca-Cola Zero")
+                    .image("/images/drinks/nonalcoholic/colazera.jpg")
+                    .price(7.00)
+                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .build();
+            Drink fanta = Drink.builder()
+                    .name("Fanta")
+                    .image("/images/drinks/nonalcoholic/fanta.jpg")
+                    .price(7.00)
+                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .build();
+            Drink sprite = Drink.builder()
+                    .name("Sprite")
+                    .image("/images/drinks/nonalcoholic/sprite.jpg")
+                    .price(7.00)
+                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .build();
 
             List<Drink> nonAlcoholic = List.of(apaPlata, apaMinerala, cola, colaZero, fanta, sprite);
 
