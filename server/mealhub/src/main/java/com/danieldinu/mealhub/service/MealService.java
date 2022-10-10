@@ -31,8 +31,8 @@ public class MealService {
         restaurantService.addMealsToRestaurant(restaurant.getId(), meals);
     }
 
-    public Optional<Meal> getMeal(Long id) {
-        return mealRepository.findById(id);
+    public Meal getMeal(Long id) {
+        return mealRepository.findById(id).isPresent() ? mealRepository.findById(id).get() : null;
     }
 
     public Set<Meal> getMeals(Long id) {

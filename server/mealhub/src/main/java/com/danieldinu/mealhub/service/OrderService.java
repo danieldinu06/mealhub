@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -26,7 +25,9 @@ public class OrderService {
     }
 
     public void addMealToOrder(Long id, Meal meal) {
+        if(orderRepository.findById(id).isEmpty()) { return; }
         Order order = orderRepository.findById(id).get();
+
         order.addMeal(meal);
         order.setPrice(calculateOrderPrice(order));
 
@@ -37,7 +38,9 @@ public class OrderService {
     }
 
     public void addDrinkToOrder(Long id, Drink drink) {
+        if(orderRepository.findById(id).isEmpty()) { return; }
         Order order = orderRepository.findById(id).get();
+
         order.addDrink(drink);
         order.setPrice(calculateOrderPrice(order));
 
@@ -48,7 +51,9 @@ public class OrderService {
     }
 
     public void removeMealFromOrder(Long id, Meal meal) {
+        if(orderRepository.findById(id).isEmpty()) { return; }
         Order order = orderRepository.findById(id).get();
+
         MealOrderElement mealOrderElement = order.getMeal(meal);
 
         if(mealOrderElement.getQuantity() == 1) {
@@ -65,7 +70,9 @@ public class OrderService {
     }
 
     public void removeDrinkFromOrder(Long id, Drink drink) {
+        if(orderRepository.findById(id).isEmpty()) { return; }
         Order order = orderRepository.findById(id).get();
+
         DrinkOrderElement drinkOrderElement = order.getDrink(drink);
 
         if(drinkOrderElement.getQuantity() == 1) {
@@ -86,10 +93,11 @@ public class OrderService {
         orderRepository.save(order);
     }
 
-    public Optional<Order> getOrder(Long id) {
-        Optional<Order> order = orderRepository.findById(id);
+    public Order getOrder(Long id) {
+        if(orderRepository.findById(id).isEmpty()) { return null; }
+        Order order = orderRepository.findById(id).get();
 
-        order.get().setPrice(calculateOrderPrice(order.get()));
+        order.setPrice(calculateOrderPrice(order));
         return order;
     }
 
@@ -109,7 +117,7 @@ public class OrderService {
 
         if (!mealOrderElements.isEmpty()) {
             for (MealOrderElement mealOrderElement : mealOrderElements) {
-                price += (mealOrderElement.getMeal().getPrice() * mealOrderElement.getQuantity());;
+                price += (mealOrderElement.getMeal().getPrice() * mealOrderElement.getQuantity());
             }
         }
 
