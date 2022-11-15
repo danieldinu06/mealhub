@@ -1,18 +1,21 @@
 import React, {useEffect, useState} from 'react'
-import axios from "axios";
 import {useParams} from "react-router-dom";
 import './Meal.css';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSquarePlus} from "@fortawesome/free-regular-svg-icons";
+import DrinksService from "../../services/drinks.service";
+import {useAtom} from "jotai";
+import {orderState} from "../../state";
 
 export default function Drink() {
     const { id } = useParams();
     const [drinks, setDrinks] = useState([]);
+    const [orderDrinks, setOrderDrinks] = useAtom(orderState.order.drinks);
+
+    function handleClick(drink) {
+        setOrderDrinks(prev => [...prev, drink]);
+    }
 
     useEffect(() => {
-        const url = `http://localhost:8888/api/public/restaurants/${id}/drinks`
-
-        axios.get(url)
+        DrinksService.getDrinks(id)
             .then(response => setDrinks(response.data))
             .catch(error => console.log(error));
     });
@@ -27,7 +30,7 @@ export default function Drink() {
                     {drinks.map(drink => (
                         <div className={"product"} key={drink.id}>
                             <div className={"grid grid-cols-2 p-1"}>
-                                <img src={drink.image} alt="No meal" className={"drinkImage"}/>
+                                <img src={drink.image} alt="No drink" className={"drinkImage"}/>
                                 <div className="p-3">
                                     <p>
                                         {drink.name}
@@ -39,9 +42,7 @@ export default function Drink() {
                                 <p>
                                     {drink.price} RON
                                 </p>
-                                <button>
-                                    <FontAwesomeIcon icon={faSquarePlus} />
-                                </button>
+                                <button className={"addVictual"} onClick={() => handleClick(drink)}>+</button>
                             </div>
                         </div>
                     ))}

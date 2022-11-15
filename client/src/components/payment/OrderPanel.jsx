@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from "react-router-dom";
+import Order from "./Order";
 
-export default function OrderPanel() {
+export default function OrderPanel(id) {
     return(
         <div>
             <div className="flex justify-center sticky top-0">
@@ -37,40 +38,7 @@ export default function OrderPanel() {
                             </div>
                         </div>
 
-                        <div className="mt-20 flex flex-col gap-4">
-                            <div className="bg-gray-200 shadow-md rounded-md grid grid-cols-3 gap-3">
-                                <div>
-                                    <img src="" alt="Food"/>
-                                </div>
-                                <div className="grid grid-rows-2 gap-3">
-                                    <div>
-                                        Burger
-                                    </div>
-                                    <div>
-                                        x 1
-                                    </div>
-                                </div>
-                                <div>
-                                    $5.5
-                                </div>
-                            </div>
-                            <div className="bg-gray-200 shadow-md rounded-md grid grid-cols-3 gap-3">
-                                <div>
-                                    <img src="" alt="Food"/>
-                                </div>
-                                <div className="grid grid-rows-2 gap-3">
-                                    <div>
-                                        Pizza
-                                    </div>
-                                    <div>
-                                        x 2
-                                    </div>
-                                </div>
-                                <div>
-                                    $16
-                                </div>
-                            </div>
-                        </div>
+                        <Order id={id}/>
 
                         <div className="mt-12 border-t-2 grid grid-cols-2">
                             <p className="mt-3 font-light text-sm">

@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from 'react'
-import axios from "axios";
 import {useParams} from "react-router-dom";
 import './Meal.css'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faSquarePlus} from "@fortawesome/free-regular-svg-icons";
+import MealsService from "../../services/meals.service";
+import {useAtom} from "jotai";
+import {orderState} from "../../state";
 
 export default function Meal() {
     const { id } = useParams();
     const [meals, setMeals] = useState([]);
+    const [orderMeals, setOrderMeals] = useAtom(orderState.order.meals);
+
+    function handleClick(meal) {
+        setOrderMeals(prev => [...prev, meal]);
+    }
 
     useEffect(() => {
-        const url = `http://localhost:8888/api/public/restaurants/${id}/meals`
-
-        axios.get(url)
+        MealsService.getMeals(id)
             .then(response => setMeals(response.data))
             .catch(error => console.log(error));
-    }, [id]);
+    });
 
     return(
         <div className="grid gap-10">
@@ -44,9 +47,7 @@ export default function Meal() {
                                         <p>
                                             {meal.price} RON
                                         </p>
-                                        <button>
-                                            <FontAwesomeIcon icon={faSquarePlus} />
-                                        </button>
+                                        <button className={"addVictual"} onClick={() => handleClick(meal)}>+</button>
                                     </div>
                                 </div>
                             )

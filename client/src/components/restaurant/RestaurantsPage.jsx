@@ -1,7 +1,6 @@
 import React from 'react';
-import DiscountCarousel from "../DiscountCarousel";
+import DiscountCarousel from "../layout/DiscountCarousel";
 import RestaurantsPanel from "../restaurant/RestaurantsPanel";
-import OrderPanel from "../OrderPanel";
 
 export default function RestaurantsPage() {
     return (
@@ -12,7 +11,6 @@ export default function RestaurantsPage() {
 
             <div className="AppContainer">
                 <RestaurantsPanel />
-                <OrderPanel/>
             </div>
         </div>
     );

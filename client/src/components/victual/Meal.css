@@ -31,12 +31,25 @@
     color: #515163;
 }
 
-.cardBottom > button {
-    color: #fa800b;
-    font-size: 1.5rem;
+.addVictual {
+    height: 4vh;
+    width: 2vw;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #f6b308;
+    color: #808000;
+
+    border-radius: 5px;
+
+    margin-bottom: 5px;
+    transition: 0.5s ease-in-out;
 }
 
-.addButton {
-    background-color: #fa800b;
-    border-radius: 0.5rem;
+.addVictual:hover {
+    background-color: #808000;
+    color: #f6b308;
+
+    transition: 0.5s ease-in-out;
 }

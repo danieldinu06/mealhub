@@ -1,6 +1,6 @@
 import React from 'react';
 import Restaurant from "../restaurant/Restaurant";
-import OrderPanel from "../OrderPanel";
+import OrderPanel from "../payment/OrderPanel";
 
 function RestaurantPage() {
     return (
