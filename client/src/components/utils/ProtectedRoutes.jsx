@@ -1,5 +1,5 @@
 import {Navigate, Outlet} from "react-router-dom";
-import AuthService from "../../services/auth.service";
+import AuthService from "../../services/authentication/auth.service";
 
 function ProtectedRoutes() {
     let authToken = AuthService.getCurrentUser();
