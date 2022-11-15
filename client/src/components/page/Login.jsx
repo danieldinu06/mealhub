@@ -2,9 +2,9 @@ import "./Authentication.css"
 import {Link, useNavigate} from "react-router-dom";
 import {toast, ToastContainer} from "react-toastify";
 import {delay} from "./Register";
-import AuthService from "../../services/auth.service";
+import AuthService from "../../services/authentication/auth.service";
 import {useFormik} from "formik";
-import {loginSchema} from "../validations/loginValidation";
+import {loginSchema} from "../../services/validation/loginValidation";
 
 
 function Login() {
