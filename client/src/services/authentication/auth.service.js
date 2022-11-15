@@ -1,6 +1,6 @@
 import axios from "axios";
+import {API_URL} from "../../utils/urls";
 
-const API_URL = "http://localhost:8888/api/public/auth";
 
 export const config = {
     headers: {
