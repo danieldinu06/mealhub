@@ -1,0 +1,16 @@
+.checkout {
+    display: flex;
+    padding: 10vh;
+
+    gap: 15vw;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.StripeCheckout {
+    height: 10vh;
+    width: 10vw;
+
+    color: aliceblue;
+}
