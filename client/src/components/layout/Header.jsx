@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Search from "./Search";
 import {Link} from "react-router-dom";
-import AuthService from "../../services/auth.service";
+import AuthService from "../../services/authentication/auth.service";
 
 export default function Header() {
     const [user, setUser] = useState();
