@@ -1,0 +1,217 @@
+.homepage {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5vh;
+}
+
+.banner {
+    height: 55vh;
+    font-size: 3vh;
+
+    background-image: url(../../../public/images/banner.png);
+    background-size: cover;
+
+    display: grid;
+
+    gap: 1vw;
+
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 33vw);
+
+    grid-template-areas:
+            ". name auth"
+            ". info .";
+}
+
+.banner > * {
+    display: flex;
+}
+
+.banner > .name{
+    grid-area: name;
+    color: #ffffff;
+
+    justify-self: center;
+}
+
+.banner > .auth{
+    grid-area: auth;
+
+    justify-self: end;
+
+    display: flex;
+    gap: 1vw;
+
+    font-size: 2.3vh;
+    height: 5vh;
+}
+
+.banner > .auth > #logIn {
+    color: #ffffff;
+    padding: 5px;
+}
+
+.banner > .auth > #logOut {
+    border: 1px solid #000000;
+    border-radius: 15px;
+
+    background-color: #ffffff;
+
+    padding: 5px;
+}
+
+.banner > .info{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10vh;
+
+    grid-area: info;
+
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.4);
+
+    color: white;
+    border: 3px solid #f1f1f1;
+    padding: 1em;
+
+    font-size: 4vh;
+}
+
+.banner > .info > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: calc(2vh + 1em);
+}
+
+.banner > .info > div > img, .submitLocation {
+    height: inherit;
+}
+
+.banner > .info > div > .inputLocation {
+    width: 23vw;
+    border-radius: 20px;
+
+    padding: 5px;
+
+    font-size: 2.5vh;
+    color: #000000;
+}
+
+.explorePanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 10vh;
+}
+
+
+.explorePanel > .ads {
+    display: flex;
+    justify-content: center;
+
+    gap: 5vw;
+}
+
+.explorePanel > img {
+    height: 60vh;
+    width: 60vw;
+
+    align-self: center;
+}
+
+.explorePanel > div {
+    align-self: center;
+}
+
+.explorePanel > div > button {
+    min-height: 5vh;
+    min-width: 10vw;
+
+    border-radius: 1rem;
+
+    background-color: #f24949;
+}
+
+.explorePanel > div > button:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.explorePanel > .ads > div {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    max-width: 10vw;
+}
+
+.explorePanel > .ads > div > img {
+    height: 15vh;
+}
+
+.explorePanel > .ads > div > p {
+    font-size: 2.5vh;
+}
+
+.bussinessPanel {
+    background-color: #f8f1ef;
+}
+
+.bussinessPanel > #courierPanel, #partnerPanel {
+    display: grid;
+
+    gap: 2vw;
+
+    padding: 1vh 10vw;
+}
+
+.bussinessPanel > #courierPanel {
+    grid-template-areas:
+            "img request"
+            "img text";
+}
+
+.bussinessPanel > #partnerPanel {
+    grid-template-areas:
+            "request img"
+            "text img";
+}
+
+.bussinessPanel > #courierPanel > img, #partnerPanel > img {
+    grid-area: img;
+    height: 50vh;
+}
+
+.bussinessPanel > #courierPanel > h1, #partnerPanel > h1 {
+    grid-area: request;
+    font-size: 5vh;
+}
+
+.bussinessPanel > #courierPanel > p, #partnerPanel > p {
+    grid-area: text;
+    font-size: 2vh;
+}
