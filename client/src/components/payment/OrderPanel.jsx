@@ -1,8 +1,28 @@
 import React, {useState} from 'react'
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Order from "./Order";
+import {useAtom} from "jotai";
+import {orderState} from "../../state";
+import RestaurantService from "../../services/data/restaurant.service";
+import OrderService from "../../services/data/order.service";
 
-export default function OrderPanel(id) {
+export default function OrderPanel() {
+    const {id} = useParams();
+    const [meals, ] = useAtom(orderState.order.meals);
+    const [drinks, ] = useAtom(orderState.order.drinks);
+    const [price, ] = useAtom(orderState.order.price);
+    const [restaurant, setRestaurant] = useState();
+
+    RestaurantService.getRestaurant(id)
+        .then(response => setRestaurant(response.data))
+        .catch(error => console.log(error));
+
+    function handleCheckout() {
+        console.log(meals);
+        OrderService.createOrder(price, 0, restaurant, null, drinks, meals)
+            .then(r => console.log(r));
+    }
+
     return(
         <div>
             <div className="flex justify-center sticky top-0">
@@ -15,7 +35,7 @@ export default function OrderPanel(id) {
                         </p>
 
                         <p className="text-black text-2xl mb-1 font-serif">
-                            4-7 Semilunei
+                            4-6 Semilunei
                         </p>
 
                         <div className="flex flex-row gap-10 items-center">
@@ -38,20 +58,20 @@ export default function OrderPanel(id) {
                             </div>
                         </div>
 
-                        <Order id={id}/>
+                        <Order/>
 
                         <div className="mt-12 border-t-2 grid grid-cols-2">
                             <p className="mt-3 font-light text-sm">
                                 Subtotal
                             </p>
                             <p className="mt-3 font-bold text-sm justify-self-end">
-                                $37.5
+                                {price} $
                             </p>
                             <p className="font-light text-sm">
                                 Delivery fee
                             </p>
                             <p className="font-bold text-sm justify-self-end">
-                                $2.5
+                                {restaurant ? restaurant.deliveryFee : 0} $
                             </p>
                         </div>
 
@@ -67,13 +87,13 @@ export default function OrderPanel(id) {
                                 Total
                             </p>
                             <p className="mt-3 font-bold text-sm justify-self-end">
-                                $40
+                                {price + (restaurant ? restaurant.deliveryFee : 0)} $
                             </p>
                         </div>
 
                         <div className="mt-6 flex justify-center">
                             <Link to={"/checkout"}>
-                                <button className="p-2 rounded-md bg-orange-500 w-36">
+                                <button className="p-2 rounded-md bg-orange-500 w-36" onClick={() => handleCheckout()}>
                                     Checkout
                                 </button>
                             </Link>
