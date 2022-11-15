@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {useParams} from "react-router-dom";
 import './Meal.css'
-import MealsService from "../../services/meals.service";
+import MealsService from "../../services/data/meals.service";
 import {useAtom} from "jotai";
 import {orderState} from "../../state";
 
@@ -9,16 +9,28 @@ export default function Meal() {
     const { id } = useParams();
     const [meals, setMeals] = useState([]);
     const [orderMeals, setOrderMeals] = useAtom(orderState.order.meals);
+    const [price, setPrice] = useAtom(orderState.order.price);
 
-    function handleClick(meal) {
-        setOrderMeals(prev => [...prev, meal]);
+    MealsService.getMeals(id)
+        .then(response => setMeals(response.data))
+        .catch(error => console.log(error));
+
+    function addToCart(meal) {
+        let index = orderMeals.findIndex(obj => obj.id === meal.id);
+
+        if (index >= 0) {
+            let newOrderMeals = [...orderMeals];
+            newOrderMeals[index].quantity++;
+
+            setOrderMeals(newOrderMeals);
+        } else {
+            orderMeals.push(meal);
+            orderMeals[orderMeals.length - 1].quantity = 1;
+            setOrderMeals(orderMeals);
+        }
+
+        setPrice(price + meal.price);
     }
-
-    useEffect(() => {
-        MealsService.getMeals(id)
-            .then(response => setMeals(response.data))
-            .catch(error => console.log(error));
-    });
 
     return(
         <div className="grid gap-10">
@@ -45,9 +57,9 @@ export default function Meal() {
 
                                     <div className={"cardBottom"}>
                                         <p>
-                                            {meal.price} RON
+                                            {meal.price} $
                                         </p>
-                                        <button className={"addVictual"} onClick={() => handleClick(meal)}>+</button>
+                                        <button className={"addVictual"} onClick={() => addToCart(meal)}>+</button>
                                     </div>
                                 </div>
                             )
