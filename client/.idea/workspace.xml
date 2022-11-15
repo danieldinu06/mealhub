@@ -5,16 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e676f472-67f4-486a-83f1-8f0663ffb208" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Restaurant.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Restaurant.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RestaurantsPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RestaurantsPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Checkout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/payment/Checkout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiscountCarousel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DiscountCarousel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/payment/OrderPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fixedComponents/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fixedComponents/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fixedComponents/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/fixedComponents/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/Authentication.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page/Authentication.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page/Register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/RestaurantPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/restaurant/RestaurantPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/RestaurantsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/restaurant/RestaurantsPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/Verification.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page/Verification.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/VerificationPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page/VerificationPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/restaurant/Restaurant.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/restaurant/Restaurant.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/restaurant/RestaurantsPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/restaurant/RestaurantsPanel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/PrivateRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/utils/PrivateRoutes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/ProtectedRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/utils/ProtectedRoutes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validations/loginValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/validation/loginValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/validations/registerValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/validation/registerValidation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/victuals/Drink.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/victual/Drink.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/victuals/Meal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/victual/Meal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/victuals/Meal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/victual/Meal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth-header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/authentication/auth-header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/authentication/auth.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/MealhubApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/MealhubApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/config/Configurator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/config/Configurator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/controller/AuthenticationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/Drink.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/Meal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/baseModel/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/model/baseModel/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/repository/MealRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/repository/MealRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/java/com/danieldinu/mealhub/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/mealhub/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server/mealhub/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +55,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -49,24 +81,33 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/daniel/CodeCool/Advanced/Week 2/hogwarts-houses-1-java-freeDaTitty/client&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/build_1/build&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;D:\\Projects\\mealhub\\client\\node_modules\\eslint&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/daniel/.local/share/JetBrains/Toolbox/apps/WebStorm/ch-0/221.5787.30/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\danie\\AppData\\Local\\JetBrains\\Toolbox\\apps\\WebStorm\\ch-0\\222.3739.57\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\mealhub\client\src\components\pages" />
+      <recent name="D:\Projects\mealhub\client\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/images" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/src/build" />
+      <recent name="D:\Projects\mealhub\client\src\components\restaurant" />
+      <recent name="D:\Projects\mealhub\client\src\services\data" />
+      <recent name="D:\Projects\mealhub\client\src\services\authentication" />
+      <recent name="D:\Projects\mealhub\client\src\services" />
+      <recent name="D:\Projects\mealhub\client\src\components\payment" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -88,10 +129,35 @@
       <workItem from="1658312912357" duration="5028000" />
       <workItem from="1658383794966" duration="1487000" />
       <workItem from="1658389893696" duration="15532000" />
+      <workItem from="1664885900244" duration="1699000" />
+      <workItem from="1664953456588" duration="1656000" />
+      <workItem from="1664956703652" duration="9074000" />
+      <workItem from="1665061902594" duration="4305000" />
+      <workItem from="1665410029016" duration="181000" />
+      <workItem from="1665579168096" duration="2733000" />
+      <workItem from="1665654372846" duration="2159000" />
+      <workItem from="1665777031334" duration="1557000" />
+      <workItem from="1666331616776" duration="18735000" />
+      <workItem from="1667523286383" duration="15633000" />
+      <workItem from="1667543952926" duration="8940000" />
+      <workItem from="1668409871428" duration="17305000" />
+      <workItem from="1668487724165" duration="14569000" />
+      <workItem from="1668526202868" duration="4639000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -7,10 +7,17 @@ body  {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    font-family: "Bookman Old Style", serif;
 }
 
 #root > footer {
     width: 100%;
+    /*background-color: #005bf7;*/
+}
+
+footer > .footer-down {
+    /*background-color: #95adf3;*/
 }
 
 .AppContainer {
