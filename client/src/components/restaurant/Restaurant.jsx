@@ -1,6 +1,7 @@
 import './Restaurant.css';
-import Meal from "../victuals/Meal";
-import Drink from "../victuals/Drink";
+import Meal from "../victual/Meal";
+import Drink from "../victual/Drink";
+import React from "react";
 
 export default function Restaurant() {
 
