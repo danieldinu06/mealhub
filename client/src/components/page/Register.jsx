@@ -1,8 +1,8 @@
 import "./Authentication.css"
 import {Link, useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
-import {registerSchema} from "../validations/registerValidation";
-import AuthService from "../../services/auth.service";
+import {registerSchema} from "../../services/validation/registerValidation";
+import AuthService from "../../services/authentication/auth.service";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
