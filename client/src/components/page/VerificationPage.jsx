@@ -5,7 +5,7 @@ export default function VerificationPage() {
         <div className="verificationPage">
             <div className={"verifyPanel"}>
                 <p>
-                    Check you email in order to verify this account.
+                    Check your email in order to verify this account.
                 </p>
                 <a href={"https://www.gmail.com"} target={"_blank"} rel={"noreferrer"} e>
                     Go to email
