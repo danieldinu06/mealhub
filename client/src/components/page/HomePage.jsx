@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./HomePage.css";
 import PredictionsOnInputChange from "../location/PredictionsOnInputChange";
 import {useNavigate} from "react-router-dom";
+import AuthService from "../../services/authentication/auth.service";
 
 export default function HomePage() {
     const navigate = useNavigate();
+    const [user, setUser] = useState();
+
+    useEffect(() => {
+        setUser(AuthService.getCurrentUser);
+    }, []);
 
     return (
         <div className={"homepage"}>
@@ -14,15 +20,18 @@ export default function HomePage() {
                         MealHub
                     </p>
                 </div>
-                <div className={"auth"}>
-                    <div id={"logIn"}>
-                        <a href="/login">Sign In</a>
-                    </div>
+                {
+                    !user && <div className={"auth"}>
+                        <div id={"logIn"}>
+                            <a href="/login">Sign In</a>
+                        </div>
 
-                    <div id={"logOut"}>
-                        <a href="/register">Sign Up</a>
+                        <div id={"logOut"}>
+                            <a href="/register">Sign Up</a>
+                        </div>
                     </div>
-                </div>
+                }
+
                 <div className={"info"}>
                     <p>Enjoy your meal<br/>Wherever you feel</p>
                     <div>
