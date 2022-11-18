@@ -4,20 +4,23 @@ import com.danieldinu.mealhub.model.Drink;
 import com.danieldinu.mealhub.model.Meal;
 import com.danieldinu.mealhub.model.Restaurant;
 import com.danieldinu.mealhub.model.Role;
+import com.danieldinu.mealhub.model.User;
 import com.danieldinu.mealhub.model.utils.DrinkType;
 import com.danieldinu.mealhub.model.utils.MealType;
 import com.danieldinu.mealhub.model.utils.RoleType;
 import com.danieldinu.mealhub.service.DrinkService;
 import com.danieldinu.mealhub.service.MealService;
-import com.danieldinu.mealhub.service.OrderService;
 import com.danieldinu.mealhub.service.RestaurantService;
 import com.danieldinu.mealhub.service.RoleService;
+import com.danieldinu.mealhub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
+import java.util.Set;
 
 @Configuration
 public class Configurator {
@@ -26,13 +29,24 @@ public class Configurator {
     @Autowired
     CommandLineRunner commandLineRunner(
             RestaurantService restaurantService, MealService mealService, DrinkService drinkService,
-            RoleService roleService) {
+            RoleService roleService, UserService userService, PasswordEncoder passwordEncoder) {
         return args -> {
             /*
              *   ROLES
              */
+
             Role user = new Role(RoleType.ROLE_USER);
             Role admin = new Role(RoleType.ROLE_ADMIN);
+
+            roleService.addRoles(List.of(user, admin));
+
+            /*
+             *  USER
+             */
+
+            User daniel = new User("daniel", "danieldinu6091@gmail.com", passwordEncoder.encode("Dani123"));
+            daniel.setRoles(Set.of(user));
+            userService.addUser(daniel);
 
             roleService.addRoles(List.of(user, admin));
 
@@ -121,7 +135,7 @@ public class Configurator {
                     .image("/images/meals/dristor/iskender/amestec.jpg")
                     .ingredients("carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti")
                     .price(49.00)
-                    .mealType(MealType.ISKENDER)
+                    .type(MealType.ISKENDER)
                     .build();
 
             Meal iskenderKebapPui = Meal.builder()
@@ -129,7 +143,7 @@ public class Configurator {
                     .image("/images/meals/dristor/iskender/pui.jpg")
                     .ingredients("carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti")
                     .price(45.00)
-                    .mealType(MealType.ISKENDER)
+                    .type(MealType.ISKENDER)
                     .build();
 
             Meal iskenderKebapVita = Meal.builder()
@@ -137,7 +151,7 @@ public class Configurator {
                     .image("/images/meals/dristor/iskender/vita.jpg")
                     .ingredients("carne, iaurt, rosii, patrunjel, crutoane, sos iskender, ardei copti")
                     .price(49.00)
-                    .mealType(MealType.ISKENDER)
+                    .type(MealType.ISKENDER)
                     .build();
 
             Meal lipieAmestec = Meal.builder()
@@ -145,7 +159,7 @@ public class Configurator {
                     .image("/images/meals/dristor/lipie/amestec.jpg")
                     .ingredients("ardei dulci, carne, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel")
                     .price(34.00)
-                    .mealType(MealType.LIPIE)
+                    .type(MealType.LIPIE)
                     .build();
 
             Meal lipiePui = Meal.builder()
@@ -153,7 +167,7 @@ public class Configurator {
                     .image("/images/meals/dristor/lipie/pui.jpg")
                     .ingredients("ardei dulci, carne, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel")
                     .price(31.00)
-                    .mealType(MealType.LIPIE)
+                    .type(MealType.LIPIE)
                     .build();
 
             Meal lipieVegetariana = Meal.builder()
@@ -161,7 +175,7 @@ public class Configurator {
                     .image("/images/meals/dristor/lipie/vegetariana.jpg")
                     .ingredients("ardei dulci, cartofi, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel")
                     .price(21.00)
-                    .mealType(MealType.LIPIE)
+                    .type(MealType.LIPIE)
                     .build();
 
             Meal lipieVita = Meal.builder()
@@ -169,7 +183,7 @@ public class Configurator {
                     .image("/images/meals/dristor/lipie/vita.jpg")
                     .ingredients("ardei dulci, cartofi, rosii, ceapa, ardei picanti, varza alba, castraveti, patrunjel")
                     .price(38.00)
-                    .mealType(MealType.LIPIE)
+                    .type(MealType.LIPIE)
                     .build();
 
             Meal meniuLipiePui = Meal.builder()
@@ -177,7 +191,7 @@ public class Configurator {
                     .image("/images/meals/dristor/meniu/pui.jpg")
                     .ingredients("lipie pui, cartofi, sos, bautura")
                     .price(39.00)
-                    .mealType(MealType.MENU)
+                    .type(MealType.MENU)
                     .build();
 
             Meal meniuLipieAmestec = Meal.builder()
@@ -185,7 +199,7 @@ public class Configurator {
                     .image("/images/meals/dristor/meniu/amestec.jpg")
                     .ingredients("lipie amestec, cartofi, sos, bautura")
                     .price(42.00)
-                    .mealType(MealType.MENU)
+                    .type(MealType.MENU)
                     .build();
 
             Meal meniuLipieVita = Meal.builder()
@@ -193,7 +207,7 @@ public class Configurator {
                     .image("/images/meals/dristor/meniu/vita.jpg")
                     .ingredients("lipie vita, cartofi, sos, bautura")
                     .price(46.00)
-                    .mealType(MealType.MENU)
+                    .type(MealType.MENU)
                     .build();
 
             Meal meniuLipieVegetariana = Meal.builder()
@@ -201,7 +215,7 @@ public class Configurator {
                     .image("/images/meals/dristor/meniu/vegetariana.jpg")
                     .ingredients("lipie vegetariana, cartofi, sos, bautura")
                     .price(31.00)
-                    .mealType(MealType.MENU)
+                    .type(MealType.MENU)
                     .build();
 
             Meal ciorbaDeBurta = Meal.builder()
@@ -209,7 +223,7 @@ public class Configurator {
                     .image("/images/meals/dristor/diverse/ciorbaBurta.jpg")
                     .ingredients("linte, ardei rosu, patrunjel, usturoi, morcov, ceapa, rosie, dafin")
                     .price(12.00)
-                    .mealType(MealType.SOUP)
+                    .type(MealType.SOUP)
                     .build();
 
             Meal micDejun = Meal.builder()
@@ -217,7 +231,7 @@ public class Configurator {
                     .image("/images/meals/dristor/diverse/micDejun.jpg")
                     .ingredients("oua, masline, branza, castravete, cascaval, cartofi, rosie, unt")
                     .price(38.00)
-                    .mealType(MealType.BREAKFAST)
+                    .type(MealType.BREAKFAST)
                     .build();
 
             Meal supaDeLinte = Meal.builder()
@@ -225,7 +239,7 @@ public class Configurator {
                     .image("/images/meals/dristor/diverse/supaLinte.jpg")
                     .ingredients("smantana, burta de vita, otet, usturoi, pastarnac, telina, ou, morcov, ceapa")
                     .price(17.00)
-                    .mealType(MealType.SOUP)
+                    .type(MealType.SOUP)
                     .build();
 
             Meal orezCuLapte = Meal.builder()
@@ -233,7 +247,7 @@ public class Configurator {
                     .image("/images/meals/dristor/desert/orezLapte.jpg")
                     .ingredients("orez, lapte, scortisoara, vanilie, zahar")
                     .price(17.00)
-                    .mealType(MealType.DESERT)
+                    .type(MealType.DESERT)
                     .build();
 
             Meal baklava = Meal.builder()
@@ -241,15 +255,15 @@ public class Configurator {
                     .image("/images/meals/dristor/desert/baklava.jpg")
                     .ingredients("faina, ou, apa, zahar, lamaie, nuca, unt")
                     .price(4.00)
-                    .mealType(MealType.DESERT)
+                    .type(MealType.DESERT)
                     .build();
 
             Meal negresa = Meal.builder()
                     .name("Negresa")
                     .image("/images/meals/dristor/desert/negresa.jpg")
-                    .ingredients("faina, ou, lapte, zahar, cacaot")
+                    .ingredients("faina, ou, lapte, zahar, cacao")
                     .price(14.00)
-                    .mealType(MealType.DESERT)
+                    .type(MealType.DESERT)
                     .build();
 
             List<Meal> dristorMeals = List.of(
@@ -259,6 +273,8 @@ public class Configurator {
                     ciorbaDeBurta, micDejun, supaDeLinte,
                     orezCuLapte, baklava, negresa
             );
+
+
             mealService.addMeals(dristorBudapesta, dristorMeals);
 
             /*
@@ -269,40 +285,40 @@ public class Configurator {
                     .name("Apa plata")
                     .image("/images/drinks/nonalcoholic/apaplata.jpg")
                     .price(6.00)
-                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .type(DrinkType.NONALCOHOLIC)
                     .build();
 
             Drink apaMinerala = Drink.builder()
                     .name("Apa minerala")
                     .image("/images/drinks/nonalcoholic/apaminerala.jpg")
                     .price(6.00)
-                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .type(DrinkType.NONALCOHOLIC)
                     .build();
 
             Drink cola = Drink.builder()
                     .name("Coca-Cola")
                     .image("/images/drinks/nonalcoholic/cola.jpg")
                     .price(7.00)
-                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .type(DrinkType.NONALCOHOLIC)
                     .build();
 
             Drink colaZero = Drink.builder()
                     .name("Coca-Cola Zero")
-                    .image("/images/drinks/nonalcoholic/colazera.jpg")
+                    .image("/images/drinks/nonalcoholic/colazero.jpg")
                     .price(7.00)
-                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .type(DrinkType.NONALCOHOLIC)
                     .build();
             Drink fanta = Drink.builder()
                     .name("Fanta")
                     .image("/images/drinks/nonalcoholic/fanta.jpg")
                     .price(7.00)
-                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .type(DrinkType.NONALCOHOLIC)
                     .build();
             Drink sprite = Drink.builder()
                     .name("Sprite")
                     .image("/images/drinks/nonalcoholic/sprite.jpg")
                     .price(7.00)
-                    .drinkType(DrinkType.NONALCOHOLIC)
+                    .type(DrinkType.NONALCOHOLIC)
                     .build();
 
             List<Drink> nonAlcoholic = List.of(apaPlata, apaMinerala, cola, colaZero, fanta, sprite);
