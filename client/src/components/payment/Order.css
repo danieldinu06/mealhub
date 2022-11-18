@@ -1,0 +1,31 @@
+.elements {
+    height: inherit;
+}
+
+.quantityPanel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.quantity {
+    text-align: center;
+}
+
+.decrease, .increase {
+    width: 1.6vw;
+
+    border: 3px solid #000000;
+    border-radius: 100%;
+
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.decrease {
+    background-color: #f24949;
+}
+
+.increase {
+    background-color: #e3b63d;
+}
