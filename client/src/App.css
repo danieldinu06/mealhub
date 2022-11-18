@@ -27,8 +27,8 @@ footer > .footer-down {
 }
 
 .container {
-    padding: 1%;
-    display: grid;
+    display: flex;
+    justify-content: center;
 }
 
 #nearby,
