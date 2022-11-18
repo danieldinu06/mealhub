@@ -1,4 +1,7 @@
 import { useRef, useEffect } from "react";
+import {Autocomplete} from "@react-google-maps/api";
+
+export default PredictionsOnInputChange;
 
 function PredictionsOnInputChange() {
     const autoCompleteRef = useRef();
@@ -23,7 +26,5 @@ function PredictionsOnInputChange() {
 
     return (
         <input className={"inputLocation"} ref={inputRef}/>
-    );
+);
 }
-
-export default PredictionsOnInputChange;
