@@ -16,10 +16,18 @@ export default function Checkout() {
     const [price, ] = useAtom(orderState.order.price);
 
     const onToken = (token) => {
-        axios.post('http://localhost:8888/api/public/payment/create-charge', {
-            amount: price + 2.99,
-            email: "dinudaniel0604@gmail.com",
-            token
+        const id = token.id;
+
+        fetch('http://localhost:8888/api/public/payment/create-charge', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: {
+                email: "danieldinu6091@gmail.com",
+                id,
+                amount: price + 2.99
+            }
         }).then(async r => {
             toast.success("Payment successfull, please wait!");
 
@@ -40,7 +48,7 @@ export default function Checkout() {
                                     {meal.name}
                                 </div>
                                 <div className="grid grid-cols-2">
-                                    {meal.price} $
+                                    {meal.price} RON
                                     <div className="text-xl">
                                         x {meal.quantity}
                                     </div>
@@ -57,7 +65,7 @@ export default function Checkout() {
                                     {drink.name}
                                 </div>
                                 <div className="grid grid-cols-2">
-                                    {drink.price} $
+                                    {drink.price} RON
                                     <div className="text-xl">
                                         x {drink.quantity}
                                     </div>
@@ -103,20 +111,20 @@ export default function Checkout() {
                         Delivery fee
                     </p>
                     <p className="font-bold text-lg">
-                        2.99 $
+                        { price > 40 ? 0 : 2.99} RON
                     </p>
                     <p className="text-xl">Total:</p>
                     <div className="text-red-700 text-xl">
-                        {price + 2.99} $
+                        {price + (price > 40 ? 0 : 2.99)} RON
                     </div>
                 </div>
 
                 <div>
                     <StripeCheckout
-                        amount={price * 100 + 299}
+                        amount={price * 100 + (price > 40 ? 0 : 299)}
                         label={"Pay"}
                         name={"Daniel"}
-                        description={`Your total is ${price + 2.99}$`}
+                        description={`Your total is ${price + (price > 40 ? 0 : 2.99)}RON`}
                         panelLabel={"Pay"}
                         token={onToken}
                         stripeKey={'pk_test_51Ll4i1AcY67GDOtFB3us2rtQrmkAE2IRMEPJOFxQFHRnumAOEC7q4ZErnjlbvWeEdo5cUF2BttAocFSxvrd4Nkts00sj0cbtDi'}
