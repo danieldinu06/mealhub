@@ -11,7 +11,11 @@ export default function Header() {
     }
 
     useEffect(() => {
-        setUser(AuthService.getCurrentUser());
+        if (AuthService.getCurrentUser() === null) return;
+        AuthService.getCurrentUser()
+            .then(response => setUser(response.data))
+            .catch(error => console.log(error));
+
     }, [])
 
     return(
@@ -25,7 +29,7 @@ export default function Header() {
             {
                 user ?
                     <div className={"font-bold text-xl text-white"}>
-                        <a href={"/login"} onClick={handleLogout}>
+                        <a href={"/"} onClick={handleLogout}>
                             Log Out
                         </a>
                     </div> :
