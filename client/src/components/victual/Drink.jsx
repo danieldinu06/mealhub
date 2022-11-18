@@ -33,32 +33,27 @@ export default function Drink() {
     }
 
     return(
-        <div className="grid gap-10">
-            <div>
-                <p className={"type"}>
-                    Drinks
-                </p>
-                <div className={"grid grid-cols-3 gap-2"}>
-                    {drinks.map(drink => (
-                        <div className={"product"} key={drink.id}>
-                            <div className={"grid grid-cols-2 p-1"}>
-                                <img src={drink.image} alt="No drink" className={"drinkImage"}/>
-                                <div className="p-3">
-                                    <p>
-                                        {drink.name}
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className={"cardBottom"}>
+        <div>
+            <div className={"grid grid-cols-3 gap-2"}>
+                {drinks.map(drink => (
+                    <div className={"product"} key={drink.id}>
+                        <div className={"grid grid-cols-2 p-1"}>
+                            <img src={drink.image} alt="No drink" className={"drinkImage"}/>
+                            <div className="p-3">
                                 <p>
-                                    {drink.price} $
+                                    {drink.name}
                                 </p>
-                                <button className={"addVictual"} onClick={() => addToCart(drink)}>+</button>
                             </div>
                         </div>
-                    ))}
-                </div>
+
+                        <div className={"cardBottom"}>
+                            <p>
+                                {drink.price} RON
+                            </p>
+                            <button className={"addVictual"} onClick={() => addToCart(drink)}>+</button>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
