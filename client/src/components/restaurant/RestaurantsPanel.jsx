@@ -60,7 +60,7 @@ export default function RestaurantsPanel() {
                             </div>
                             <div className={"flex gap-4 items-center"}>
                                 <div>
-                                    <FontAwesomeIcon icon={faTruck}/> {restaurant.deliveryFee} $
+                                    <FontAwesomeIcon icon={faTruck}/> {restaurant.deliveryFee} RON
                                 </div>
                                 <div>
                                     <FontAwesomeIcon icon={faClock} /> 40min
