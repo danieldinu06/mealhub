@@ -9,6 +9,6 @@ import java.util.Set;
 
 @Repository
 public interface MealRepository extends JpaRepository<Meal, Long> {
-    @Query("select m from Meal m inner join m.restaurants r where r.id = :id")
+    @Query("select m from Meal m inner join Restaurant rm on rm.id = :id")
     Set<Meal> findByRestaurantId(Long id);
 }
