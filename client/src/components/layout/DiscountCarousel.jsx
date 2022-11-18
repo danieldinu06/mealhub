@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function DiscountCarousel() {
     return(
-        <div id="carouselExampleControls" className="carousel slide relative justify-self-center max-w-2xl" data-bs-ride="carousel">
+        <div id="carouselExampleControls" className="carousel slide relative justify-self-center max-w-2xl pt-6" data-bs-ride="carousel">
             <div className="carousel-inner relative w-full overflow-hidden rounded-lg">
                 <div className="carousel-item active relative float-left w-full">
                     <img
