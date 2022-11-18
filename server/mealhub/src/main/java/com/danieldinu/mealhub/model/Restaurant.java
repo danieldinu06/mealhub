@@ -60,7 +60,7 @@ public class Restaurant {
     @JsonIgnore
     private List<Order> order = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "restaurant_drink",
             joinColumns = @JoinColumn(name = "restaurant_id"),
@@ -68,7 +68,7 @@ public class Restaurant {
     )
     private Set<Drink> drinks = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "restaurant_meal",
             joinColumns = @JoinColumn(name = "restaurant_id"),
@@ -82,6 +82,7 @@ public class Restaurant {
     public void addDrink(Drink drink) {
         this.drinks.add(drink);
     }
-
-    public void addOrder(Order order) { this.order.add(order); }
+    public void addOrder(Order order) {
+        this.order.add(order);
+    }
 }
