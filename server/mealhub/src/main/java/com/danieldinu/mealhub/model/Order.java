@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,12 +52,12 @@ public class Order{
     )
     private List<DrinkOrderElement> drinks = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "order_meal",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "meal_id")
-    )
+    @OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER, mappedBy = "order")
+//    @JoinTable(
+//            name = "order_meal",
+//            joinColumns = @JoinColumn(name = "order_id"),
+//            inverseJoinColumns = @JoinColumn(name = "meal_id")
+//    )
     private List<MealOrderElement> meals = new ArrayList<>();
 
     public void addDrink(Drink drink) {
@@ -64,7 +65,17 @@ public class Order{
     }
 
     public void addMeal(Meal meal) {
-        MealOrderElement.addMeal(meal, meals);
+        if (meals.isEmpty()) {
+            MealOrderElement mealOrderElement = MealOrderElement.builder().meal(meal).quantity(0).build();
+            meals.add(mealOrderElement);
+            return;
+        }
+
+        for (MealOrderElement mealOrderElement : meals) {
+            if (mealOrderElement.getMeal().equals(meal)) {
+                mealOrderElement.setQuantity(mealOrderElement.getQuantity() + 1);
+            }
+        }
     }
 
     public DrinkOrderElement getDrink(Drink drink) {
