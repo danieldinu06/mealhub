@@ -1,30 +1,39 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link, useParams} from "react-router-dom";
 import Order from "./Order";
 import {useAtom} from "jotai";
 import {orderState} from "../../state";
 import RestaurantService from "../../services/data/restaurant.service";
 import OrderService from "../../services/data/order.service";
+import AuthService from "../../services/authentication/auth.service";
 
 export default function OrderPanel() {
     const {id} = useParams();
+    const [restaurant, setRestaurant] = useState();
+    const [user, setUser] = useState(null);
+
     const [meals, ] = useAtom(orderState.order.meals);
     const [drinks, ] = useAtom(orderState.order.drinks);
     const [price, ] = useAtom(orderState.order.price);
-    const [restaurant, setRestaurant] = useState();
 
     RestaurantService.getRestaurant(id)
         .then(response => setRestaurant(response.data))
         .catch(error => console.log(error));
 
+    useEffect(() => {
+        AuthService.getCurrentUser()
+            .then(response => setUser(response.data))
+            .catch(err => console.log(err));
+    });
+
     function handleCheckout() {
-        console.log(meals);
-        OrderService.createOrder(price, 0, restaurant, null, drinks, meals)
-            .then(r => console.log(r));
+        OrderService.createOrder(price, 0, restaurant, user, drinks, meals)
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
     }
 
     return(
-        <div>
+        <div className={"pt-16 pr-6"}>
             <div className="flex justify-center sticky top-0">
                 <div className="rounded-lg shadow-lg bg-white max-w-sm border-l-2">
                     <div className="p-6">
@@ -65,13 +74,13 @@ export default function OrderPanel() {
                                 Subtotal
                             </p>
                             <p className="mt-3 font-bold text-sm justify-self-end">
-                                {price} $
+                                {price} RON
                             </p>
                             <p className="font-light text-sm">
                                 Delivery fee
                             </p>
                             <p className="font-bold text-sm justify-self-end">
-                                {restaurant ? restaurant.deliveryFee : 0} $
+                                {restaurant ? (price > 40 ? "Free delivery" : `${restaurant.deliveryFee} RON`) : 0}
                             </p>
                         </div>
 
@@ -87,7 +96,7 @@ export default function OrderPanel() {
                                 Total
                             </p>
                             <p className="mt-3 font-bold text-sm justify-self-end">
-                                {price + (restaurant ? restaurant.deliveryFee : 0)} $
+                                {price + (restaurant ? ( price > 40 ? 0 : restaurant.deliveryFee) : 0)} RON
                             </p>
                         </div>
 
