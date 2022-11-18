@@ -23,7 +23,7 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route element={<PublicRoutes/>}>
+                <Route>
                     <Route path={"/"} element={(
                         <>
                             <HomePage/>
