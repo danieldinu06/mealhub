@@ -89,16 +89,15 @@ public class OrderService {
     }
 
     public void addOrder(Order order) {
+        mealOrderElementService.addMeals(order.getMeals());
         order.setPrice(calculateOrderPrice(order));
         orderRepository.save(order);
     }
 
     public Order getOrder(Long id) {
         if(orderRepository.findById(id).isEmpty()) { return null; }
-        Order order = orderRepository.findById(id).get();
 
-        order.setPrice(calculateOrderPrice(order));
-        return order;
+        return orderRepository.findById(id).get();
     }
 
     public List<Order> getAllOrders() {
